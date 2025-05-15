@@ -1,0 +1,34 @@
+column	description
+contig	chromosome
+position	position
+variantID	variant ID
+refAllele	reference allele
+altAllele	alternative allele
+refCount	reference allele read counts (from ASEReadCounter)
+altCount	alternative allele read counts (from ASEReadCounter)
+totalCount	ref + alt allele read counts (from ASEReadCounter)
+lowMAPQDepth	counts of reads failing the MAPQ cutoff (from ASEReadCounter)
+lowBaseQDepth	counts of reads failing the BaseQ cutoff (from ASEReadCounter)
+rawDepth	raw read counts (from ASEReadCounter)
+otherBases	read counts for alleles different from either ref or alt (from ASEReadCounter)
+improperPairs	improperly paired read pairs (from ASEReadCounter)
+strand	strand (based on the strandedness parameter)
+RNAid	RNA sample ID ("sample" in the sample sheet)
+hiCount	higher read counts of the alleles
+loCount	lower read counts of the alleles
+rawASE	|0.5 - refCount/totalCount|
+rawASE_pvalue	biomial test p-value against 50% probability
+nonAltFreq_perRNAid	non-alternative allele frequency at 1/1 sites, averaged per RNA sample
+nonRefFreq_perRNAid	non-reference allele frequency at 0/0 sites, averaged per RNA sample
+genes	gene IDs:symbols (including both exonic and intronic overlaps), ";" delimited when there are multiple
+genes_exonic	gene IDs:symbols (only exonic),  ";" delimited when there are multiple
+exons_merged	merged exon information, ";" delimited when there are multiple (exons for each gene are merged into a union set)
+gene_type_exonic	gene type (only exonic), ";" delimited when there are multiple types
+phasedGT	phased genotype, if available
+PatAllele	paternal allele, if available
+MatAllele	maternal allele, if available
+PatDepth	paternal allele read count, if available
+MatDepth	maternal allele read count, if available
+PatFreq	paternal allele read count frequency, if available
+MatFreq	maternal allele read count frequency, if available
+homRef_nonRefFreq_atMatAlt_mean_perGene_perRNAid	(for placental samples) non-reference allele frequency at 0/0 sites when mother genotype has alternative alleles, averaged per gene per RNA sample

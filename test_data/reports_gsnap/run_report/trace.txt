@@ -1,0 +1,46 @@
+task_id	hash	native_id	name	status	exit	submit	duration	realtime	%cpu	peak_rss	peak_vmem	rchar	wchar
+3	42/347ea7	249847	gtf_to_df (gtf_to_df)	CACHED	0	2025-04-30 23:12:42.465	1m 47s	1m 46s	169.7%	35.4 GB	45 GB	3.4 GB	2.5 GB
+2	77/5742bd	24935312	gsnap_routine:gsnap_index_gtf (gsnap_index_gtf)	CACHED	0	2025-05-01 10:48:48.827	1m 38s	48s	97.2%	776.6 MB	789 MB	3.3 GB	3.8 GB
+5	25/8b481e	249882	trimmomatic (trimmomatic on raw reads: 123878)	CACHED	0	2025-04-30 23:12:42.526	4.1s	3s	617.0%	321.1 MB	8.9 GB	20.7 MB	3.1 MB
+7	a9/858919	250106	trimmomatic (trimmomatic on raw reads: 8174-CV-86)	CACHED	0	2025-04-30 23:12:42.660	4.4s	2s	667.0%	293.2 MB	8.9 GB	20.7 MB	3 MB
+1	cf/3eb7e3	249849	gtf_to_refflat (gtf_to_refflat)	CACHED	0	2025-04-30 23:12:42.488	17.1s	17s	100.4%	682.7 MB	697.8 MB	1.5 GB	155.1 MB
+8	6e/0fe5c8	249860	genome_link (genome_link)	CACHED	0	2025-04-30 23:12:42.507	14.9s	14.5s	100.1%	2.8 MB	13.6 MB	2.9 GB	9 KB
+4	be/11416c	250120	fastqc_raw (fastqc_raw 123878)	CACHED	0	2025-04-30 23:12:42.672	6.6s	6s	171.5%	204.2 MB	3.8 GB	23.6 MB	3.4 MB
+6	60/2427b1	250102	fastqc_raw (fastqc_raw 8174-CV-86)	CACHED	0	2025-04-30 23:12:42.641	6.5s	5s	172.4%	233.9 MB	3.9 GB	23.7 MB	3.5 MB
+9	5e/5d1359	263653	extract_exons_genes (extract_exons_genes)	CACHED	0	2025-04-30 23:14:29.390	29.4s	28.3s	98.6%	2.6 GB	3.8 GB	708.6 MB	157.3 MB
+11	de/f26bf4	255460	genome_dict (genome_dict)	CACHED	0	2025-04-30 23:12:57.447	13s	13s	150.2%	786.5 MB	38.4 GB	3 GB	724.7 KB
+13	76/937e9c	252691	fastqc_trimmed (fastqc_trimmed 8174-CV-86)	CACHED	0	2025-04-30 23:12:47.100	6.3s	6s	161.7%	202.1 MB	3.9 GB	23.3 MB	3.4 MB
+12	c1/bc5661	252426	fastqc_trimmed (fastqc_trimmed 123878)	CACHED	0	2025-04-30 23:12:46.682	6.3s	6s	190.5%	239.6 MB	3.8 GB	23.3 MB	3.3 MB
+14	cf/64e427	265967	exon_merge_by_gene (exon_merge_by_gene)	CACHED	0	2025-04-30 23:14:58.794	14s	13s	202.6%	869.1 MB	1001.8 MB	385.6 MB	257.6 MB
+15	0e/432591	259221	rRNA_tRNA_list (rRNA_tRNA_list)	CACHED	0	2025-04-30 23:13:10.514	4.3s	4s	248.1%	315.8 MB	38.2 GB	80.4 MB	823 KB
+10	ad/5e2f4f	24935366	gsnap_routine:gmap_index_genome (gmap_index_genome)	COMPLETED	0	2025-05-01 11:25:12.675	22m 36s	22m 25s	95.4%	4.7 GB	4.7 GB	20.9 GB	28.1 GB
+17	30/bf0ca2	24935503	gsnap_routine:gsnap_index_snps (gsnap_index_snps: 8174-CV-86)	COMPLETED	0	2025-05-01 11:47:49.269	1m 35s	1m 21s	38.8%	5.4 GB	5.4 GB	1.1 GB	6.5 GB
+16	a6/d74aca	24935502	gsnap_routine:gsnap_index_snps (gsnap_index_snps: 123878)	COMPLETED	0	2025-05-01 11:47:49.227	2m 10s	1m 20s	39.3%	5.4 GB	5.4 GB	1.1 GB	6.5 GB
+19	09/e02b31	24935506	gsnap_routine:gsnap_aln (gsnap_aln: 123878)	COMPLETED	0	2025-05-01 11:49:59.203	2m 15s	1m 21s	913.2%	21.5 GB	22.7 GB	20.2 GB	22.1 MB
+20	e6/56ffa7	24935508	gsnap_routine:gsnap_sam_to_sorted_bam (gsnap_sam_to_sorted_bam: 123878)	COMPLETED	0	2025-05-01 11:52:14.205	4.9s	727ms	62.7%	3.7 MB	9.1 MB	29.5 MB	8.7 MB
+21	9e/fd7d3f	24935509	aln_filter (aln_filter: 123878)	COMPLETED	0	2025-05-01 11:52:19.227	4.9s	109ms	243.8%	3.1 MB	5.4 MB	8.5 MB	4.1 MB
+23	3b/fbe5d6	24935511	aln_hc_metrics (aln_hc_metrics: 123878)	COMPLETED	0	2025-05-01 11:52:24.317	39.8s	19s	50.1%	1003.5 MB	32.1 GB	97.5 MB	694.8 KB
+22	51/18276d	24935510	aln_dedup (aln dedup: 123878)	COMPLETED	0	2025-05-01 11:52:24.283	39.9s	21s	55.5%	2.6 GB	32.1 GB	54 MB	5.2 MB
+24	03/3b4ac5	24935512	aln_strand_split (aln strand split: 123878)	COMPLETED	0	2025-05-01 11:53:04.238	4.9s	261ms	192.9%	3 MB	5.4 MB	75.6 MB	68.9 MB
+18	a0/9459e5	24935504	gsnap_routine:gsnap_aln (gsnap_aln: 8174-CV-86)	COMPLETED	0	2025-05-01 11:49:24.260	4m 5s	3m 55s	1300.8%	20.8 GB	22.2 GB	20.2 GB	21.8 MB
+26	63/dbe908	24935514	gsnap_routine:gsnap_sam_to_sorted_bam (gsnap_sam_to_sorted_bam: 8174-CV-86)	COMPLETED	0	2025-05-01 11:53:29.280	4.9s	236ms	203.0%	5.4 MB	19.1 MB	29 MB	8.6 MB
+27	15/89919e	24935515	aln_filter (aln_filter: 8174-CV-86)	COMPLETED	0	2025-05-01 11:53:34.210	4.9s	109ms	226.2%	3.4 MB	9 MB	8.4 MB	4 MB
+25	75/8541ab	24935513	aln_ase_count (aln ase_count: 123878)	COMPLETED	0	2025-05-01 11:53:10.434	38.7s	28s	75.6%	740.3 MB	32.2 GB	1005.9 MB	21.6 MB
+29	e7/a4af0d	24935517	aln_hc_metrics (aln_hc_metrics: 8174-CV-86)	COMPLETED	0	2025-05-01 11:53:39.243	39.9s	10s	94.9%	1017.1 MB	32.1 GB	97.5 MB	694.9 KB
+28	dd/cc7857	24935516	aln_dedup (aln dedup: 8174-CV-86)	COMPLETED	0	2025-05-01 11:53:39.207	39.9s	11s	94.5%	8.8 GB	32.1 GB	53.9 MB	5 MB
+30	71/9f5e9b	24935518	ase_count_split (ase_count_split: 123878)	COMPLETED	0	2025-05-01 11:53:49.215	34.9s	8.2s	16.6%	119.5 MB	478.2 MB	15.7 MB	419.4 KB
+31	ea/5ccd83	24935519	aln_strand_split (aln strand split: 8174-CV-86)	COMPLETED	0	2025-05-01 11:54:19.209	5s	243ms	198.0%	3.1 MB	5.4 MB	70.6 MB	64.3 MB
+34	19/fdbcc5	24935521	aln_ase_count (aln ase_count: 8174-CV-86)	COMPLETED	0	2025-05-01 11:54:24.241	34.9s	21s	91.5%	745.5 MB	32.1 GB	699.3 MB	15.3 MB
+33	fa/68851a	24935520	multiqc_from_fastq (multiqc_from_fastq)	COMPLETED	0	2025-05-01 11:54:19.247	39.9s	18.5s	29.8%	114.1 MB	309.8 MB	104.6 MB	36.3 MB
+35	61/d09a48	24935522	ase_count_split (ase_count_split: 8174-CV-86)	COMPLETED	0	2025-05-01 11:54:59.318	4.8s	1.5s	84.7%	17.2 MB	38.9 MB	15 MB	253.6 KB
+36	a4/f8ff0f	24935523	ase_count_concat (ase_count_concat)	COMPLETED	0	2025-05-01 11:55:04.220	4.9s	100ms	23.6%	2.8 MB	12.6 MB	3.5 MB	2.6 MB
+39	49/8d88d1	24935524	ase_homref_add_matGT (ase_homref_add_matGT)	COMPLETED	0	2025-05-01 11:55:09.235	4.9s	1.9s	84.7%	162.4 MB	534.2 MB	18 MB	75.2 KB
+37	ec/ae9c0c	24935525	ase_x_exons_genes (ase_x_exons_genes)	COMPLETED	0	2025-05-01 11:55:09.288	4.9s	1s	31.2%	3.2 MB	4.3 MB	34 MB	761.4 KB
+40	d1/ac39c5	24935527	ase_homref_x_exons_genes (ase_homref_x_exons_genes)	COMPLETED	0	2025-05-01 11:55:14.223	4.9s	0ms	87.9%	3.1 MB	4.3 MB	29.9 MB	2.4 MB
+38	c7/6c3533	24935526	ase_hetsnp_ase (ase_hetsnp_ase)	COMPLETED	0	2025-05-01 11:55:09.324	39.8s	5s	46.4%	172.6 MB	548.6 MB	23.3 MB	20.9 KB
+41	10/cd2d7f	24935528	ase_exon_label (ase_exon_label)	COMPLETED	0	2025-05-01 11:55:49.211	5s	1.4s	84.6%	16.2 MB	36.1 MB	13.6 MB	33.7 KB
+42	cd/b5fd9a	24935529	ase_hetsnp_add_genetype (ase_hetsnp_add_genetype)	COMPLETED	0	2025-05-01 11:55:54.216	4.9s	1.6s	85.6%	17.6 MB	106.1 MB	19.4 MB	32.8 KB
+43	e7/978748	24935530	ase_hetsnp_add_phasing (ase_hetsnp_add_phasing)	COMPLETED	0	2025-05-01 11:55:59.228	4.9s	1.4s	83.2%	16.6 MB	39 MB	13.6 MB	41.3 KB
+44	01/2d7c59	24935531	ase_hetsnp_maternalcontam (ase_hetsnp_maternalcontam)	COMPLETED	0	2025-05-01 11:56:04.222	4.9s	1.4s	85.0%	17.4 MB	39 MB	13.5 MB	41.4 KB
+45	74/ce4599	24935533	qc_summary_from_fastq (qc_summary_from_fastq)	FAILED	0	2025-05-01 11:56:09.275	4.9s	1.2s	92.6%	117.3 MB	477.6 MB	13.6 MB	1.1 KB
+46	0e/9041be	24935532	ase_data_rds (ase_data_rds)	ABORTED	-	2025-05-01 11:56:09.219	-	-	-	-	-	-	-

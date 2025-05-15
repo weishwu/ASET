@@ -1,0 +1,41 @@
+task_id	hash	native_id	name	status	exit	submit	duration	realtime	%cpu	peak_rss	peak_vmem	rchar	wchar
+5	25/8b481e	249882	trimmomatic (trimmomatic on raw reads: 123878)	COMPLETED	0	2025-04-30 23:12:42.526	4.1s	3s	617.0%	321.1 MB	8.9 GB	20.7 MB	3.1 MB
+7	a9/858919	250106	trimmomatic (trimmomatic on raw reads: 8174-CV-86)	COMPLETED	0	2025-04-30 23:12:42.660	4.4s	2s	667.0%	293.2 MB	8.9 GB	20.7 MB	3 MB
+6	60/2427b1	250102	fastqc_raw (fastqc_raw 8174-CV-86)	COMPLETED	0	2025-04-30 23:12:42.641	6.5s	5s	172.4%	233.9 MB	3.9 GB	23.7 MB	3.5 MB
+4	be/11416c	250120	fastqc_raw (fastqc_raw 123878)	COMPLETED	0	2025-04-30 23:12:42.672	6.6s	6s	171.5%	204.2 MB	3.8 GB	23.6 MB	3.4 MB
+8	c1/bc5661	252426	fastqc_trimmed (fastqc_trimmed 123878)	COMPLETED	0	2025-04-30 23:12:46.682	6.3s	6s	190.5%	239.6 MB	3.8 GB	23.3 MB	3.3 MB
+9	76/937e9c	252691	fastqc_trimmed (fastqc_trimmed 8174-CV-86)	COMPLETED	0	2025-04-30 23:12:47.100	6.3s	6s	161.7%	202.1 MB	3.9 GB	23.3 MB	3.4 MB
+3	6e/0fe5c8	249860	genome_link (genome_link)	COMPLETED	0	2025-04-30 23:12:42.507	14.9s	14.5s	100.1%	2.8 MB	13.6 MB	2.9 GB	9 KB
+1	cf/3eb7e3	249849	gtf_to_refflat (gtf_to_refflat)	COMPLETED	0	2025-04-30 23:12:42.488	17.1s	17s	100.4%	682.7 MB	697.8 MB	1.5 GB	155.1 MB
+11	de/f26bf4	255460	genome_dict (genome_dict)	COMPLETED	0	2025-04-30 23:12:57.447	13s	13s	150.2%	786.5 MB	38.4 GB	3 GB	724.7 KB
+12	0e/432591	259221	rRNA_tRNA_list (rRNA_tRNA_list)	COMPLETED	0	2025-04-30 23:13:10.514	4.3s	4s	248.1%	315.8 MB	38.2 GB	80.4 MB	823 KB
+2	42/347ea7	249847	gtf_to_df (gtf_to_df)	COMPLETED	0	2025-04-30 23:12:42.465	1m 47s	1m 46s	169.7%	35.4 GB	45 GB	3.4 GB	2.5 GB
+13	5e/5d1359	263653	extract_exons_genes (extract_exons_genes)	COMPLETED	0	2025-04-30 23:14:29.390	29.4s	28.3s	98.6%	2.6 GB	3.8 GB	708.6 MB	157.3 MB
+14	cf/64e427	265967	exon_merge_by_gene (exon_merge_by_gene)	COMPLETED	0	2025-04-30 23:14:58.794	14s	13s	202.6%	869.1 MB	1001.8 MB	385.6 MB	257.6 MB
+10	4e/bcdab2	255462	star_wasp_routine:star_genome_index (star_genome_index)	COMPLETED	0	2025-04-30 23:12:57.458	24m 26s	24m 26s	670.6%	48.6 GB	63.2 GB	52.4 GB	71.8 GB
+15	04/5b8f77	299649	star_wasp_routine:star_wasp_aln (STAR_WASP alignment: 123878)	COMPLETED	0	2025-04-30 23:37:23.511	25s	25s	89.2%	31.3 GB	32.6 GB	28 GB	24 MB
+17	cb/6dc71f	307511	aln_filter (aln_filter: 123878)	COMPLETED	0	2025-04-30 23:37:48.580	1.6s	1.2s	166.6%	11.7 MB	945 MB	59.3 MB	49.8 MB
+16	8a/28e346	299651	star_wasp_routine:star_wasp_aln (STAR_WASP alignment: 8174-CV-86)	COMPLETED	0	2025-04-30 23:37:23.524	28.1s	28s	89.4%	31.3 GB	32.6 GB	28 GB	23.2 MB
+20	17/22c687	308424	aln_filter (aln_filter: 8174-CV-86)	COMPLETED	0	2025-04-30 23:37:51.631	1.6s	1.2s	150.9%	25.7 MB	4.6 GB	56.5 MB	47.3 MB
+18	45/52c6d9	307878	aln_dedup (aln dedup: 123878)	COMPLETED	0	2025-04-30 23:37:50.177	7.6s	7s	310.6%	9.3 GB	39.8 GB	85.7 MB	5.1 MB
+19	1e/88404d	307880	aln_hc_metrics (aln_hc_metrics: 123878)	COMPLETED	0	2025-04-30 23:37:50.190	8.2s	8s	301.1%	1.2 GB	40.9 GB	129.3 MB	694.8 KB
+23	6a/cd77b6	311257	aln_strand_split (aln strand split: 123878)	COMPLETED	0	2025-04-30 23:37:57.855	800ms	363ms	238.3%	3 MB	551.4 MB	73.8 MB	66.3 MB
+22	2c/4990c3	309162	aln_dedup (aln dedup: 8174-CV-86)	COMPLETED	0	2025-04-30 23:37:53.214	7.6s	7s	301.3%	9.1 GB	39.8 GB	85.6 MB	4.9 MB
+21	8b/146835	309164	aln_hc_metrics (aln_hc_metrics: 8174-CV-86)	COMPLETED	0	2025-04-30 23:37:53.225	8.6s	8s	302.7%	1.2 GB	40.8 GB	129.2 MB	695.1 KB
+25	7f/3dd2c5	1730	aln_strand_split (aln strand split: 8174-CV-86)	COMPLETED	0	2025-04-30 23:38:00.893	975ms	553ms	149.1%	6.6 MB	810.8 MB	68.3 MB	61.2 MB
+27	cd/f78527	2863	multiqc_from_fastq (multiqc_from_fastq)	COMPLETED	0	2025-04-30 23:38:01.929	11.3s	10.6s	246.5%	124.6 MB	10.8 GB	138.3 MB	36.5 MB
+24	c2/ca91fe	849	aln_ase_count (aln ase_count: 123878)	COMPLETED	0	2025-04-30 23:37:58.711	18.5s	18s	290.5%	1.3 GB	39.7 GB	1014.2 MB	21.6 MB
+28	bc/869d56	2797	aln_ase_count (aln ase_count: 8174-CV-86)	COMPLETED	0	2025-04-30 23:38:01.897	18.2s	17s	285.5%	1.4 GB	39.6 GB	629.1 MB	15.3 MB
+29	29/f7487c	6848	ase_count_split (ase_count_split: 123878)	COMPLETED	0	2025-04-30 23:38:17.280	3.8s	3.3s	99.5%	86.7 MB	512.6 MB	45.5 MB	413.9 KB
+30	6f/bce645	7308	ase_count_split (ase_count_split: 8174-CV-86)	COMPLETED	0	2025-04-30 23:38:20.145	3.5s	3s	99.1%	86.2 MB	515.1 MB	44.8 MB	248.8 KB
+31	cd/8251e3	7687	ase_count_concat (ase_count_concat)	COMPLETED	0	2025-04-30 23:38:23.665	349ms	76ms	125.7%	1.5 MB	110.6 MB	3.5 MB	2.6 MB
+32	de/998383	7802	ase_x_exons_genes (ase_x_exons_genes)	COMPLETED	0	2025-04-30 23:38:24.045	993ms	0ms	107.1%	1.6 MB	4.3 MB	37.6 MB	734.7 KB
+33	65/d8376f	7808	ase_homref_add_matGT (ase_homref_add_matGT)	COMPLETED	0	2025-04-30 23:38:24.066	4s	3.6s	99.5%	156.3 MB	603 MB	47.8 MB	74.3 KB
+35	9c/39ec79	9015	ase_homref_x_exons_genes (ase_homref_x_exons_genes)	COMPLETED	0	2025-04-30 23:38:28.120	815ms	0ms	118.9%	1.5 MB	4.3 MB	33.5 MB	2.3 MB
+34	26/d836e2	7805	ase_hetsnp_ase (ase_hetsnp_ase)	COMPLETED	0	2025-04-30 23:38:24.056	5.2s	4.7s	99.5%	143.6 MB	604.3 MB	53.1 MB	20.3 KB
+36	91/253185	9303	ase_exon_label (ase_exon_label)	COMPLETED	0	2025-04-30 23:38:29.247	3.3s	2.9s	99.1%	82.1 MB	507.7 MB	43.3 MB	32.6 KB
+37	35/482a5e	9586	ase_hetsnp_add_genetype (ase_hetsnp_add_genetype)	COMPLETED	0	2025-04-30 23:38:32.619	3.7s	3.1s	99.4%	88 MB	515 MB	49.2 MB	31.6 KB
+38	1e/cdbda5	9995	ase_hetsnp_add_phasing (ase_hetsnp_add_phasing)	COMPLETED	0	2025-04-30 23:38:36.374	3.3s	2.9s	99.9%	89.7 MB	515 MB	43.4 MB	39.8 KB
+39	61/f38c2c	10352	ase_hetsnp_maternalcontam (ase_hetsnp_maternalcontam)	COMPLETED	0	2025-04-30 23:38:39.754	3.2s	2.8s	99.4%	90.9 MB	518.8 MB	43.3 MB	39.9 KB
+42	f3/95b0dd	10708	qc_summary_from_fastq (qc_summary_from_fastq)	COMPLETED	0	2025-04-30 23:38:42.996	3.5s	3s	105.9%	85.6 MB	510.9 MB	44.3 MB	4.1 KB
+41	ca/ddd1fa	10706	ase_data_rds (ase_data_rds)	COMPLETED	0	2025-04-30 23:38:42.978	8.2s	7.8s	186.7%	307.5 MB	8.8 GB	34 MB	3.5 MB

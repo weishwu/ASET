@@ -1,0 +1,3 @@
+sample,bam,snps,snps_with_ref
+123878,test_data/star_aln/123878.aln.hc.dedup.bam,test_data/snps/Sample_122929/Sample_122929.homSNPhetSNP.final.vcf.gz,test_data/snps/Sample_122929/Sample_122929.homSNPrefSNPhetSNP.final.vcf.gz
+8174-CV-86,test_data/star_aln/8174-CV-86.aln.hc.dedup.bam,test_data/snps/Sample_8365-CV-105merge/Sample_8365-CV-105merge.homSNPhetSNP.final.vcf.gz,test_data/snps/Sample_8365-CV-105merge/Sample_8365-CV-105merge.homSNPrefSNPhetSNP.final.vcf.gz
