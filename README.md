@@ -1,4 +1,4 @@
-# <ins>ASET</ins>: *A*llele *S*pecific *E*xpression *T*oolkit
+# ASET: <ins>A</ins>llele <ins>S</ins>pecific <ins>E</ins>xpression <ins>T</ins>oolkit
 
 This nextflow pipeline processes Illumina RNA-Seq reads and generates a data frame that includes allele specific read count data at each SNP site across the samples, annotation for genes and exons. The output data can be taken by the [ASEplot](https://github.com/weishwu/ASEplot) R package for figure generation and genetic ASE test.
 
