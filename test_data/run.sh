@@ -5,11 +5,11 @@ export NXF_SINGULARITY_CACHEDIR=/nfs/mm-isilon/bioinfcore/ActiveProjects/weishwu
 nextflow run main.nf \
         -profile lh,singularity \
 	-params-file test_data/params.yaml \
-        -resume \
-        #-with-dag test_data/reports_starNmask/run_report/dag.png \
-	#-with-trace test_data/reports_starNmask/run_report/trace.txt \
-	#-with-report test_data/reports_starNmask/run_report/report.html \
-	#-with-timeline test_data/reports_starNmask/run_report/timeline.html \
+	-resume \
+        -with-dag test_data/reports_aselux/run_report/dag.png \
+	-with-trace test_data/reports_aselux/run_report/trace.txt \
+	-with-report test_data/reports_aselux/run_report/report.html \
+	-with-timeline test_data/reports_aselux/run_report/timeline.html \
 	#-with-dag test_data/reports/run_report/dag.png \
 	#-resume \
 	#-preview

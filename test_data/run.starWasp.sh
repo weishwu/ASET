@@ -1,0 +1,15 @@
+source /nfs/mm-isilon/bioinfcore/ActiveProjects/weishwu/common/Anaconda3/bin/activate env_nf
+
+export NXF_SINGULARITY_CACHEDIR=/nfs/mm-isilon/bioinfcore/ActiveProjects/weishwu/test/ASEprep/singularity_images
+
+nextflow run main.nf \
+        -profile lh,singularity \
+	-params-file test_data/params.starWasp.yaml \
+	-resume \
+        -with-dag test_data/reports_starWasp/run_report/dag.png \
+	-with-trace test_data/reports_starWasp/run_report/trace.txt \
+	-with-report test_data/reports_starWasp/run_report/report.html \
+	-with-timeline test_data/reports_starWasp/run_report/timeline.html \
+	#-with-dag test_data/reports/run_report/dag.png \
+	#-resume \
+	#-preview

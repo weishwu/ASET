@@ -1,0 +1,48 @@
+dirs:
+   results_dir: test_data/reports_starNmask/results/
+
+
+support_files:
+   genome_fa: test_data/refs/hg38.fa
+   gtf: test_data/refs/gencode.v41.annotation.gtf
+   rRNA_tRNA_bed: test_data/refs/rRNA_tRNA.bed
+   adapters: test_data/refs/TruSeq3-PE-2.fa
+  
+# "phase_info" and "maternal_vcf" are optional
+data:
+   routine: 'from_fastq'
+   sample_sheet: test_data/sample_sheet.from_fastq.more_snps.csv
+   rna_readlen: 151
+   rna_strandedness: 'SECOND_READ_TRANSCRIPTION_STRAND'
+   ase_depth_min: 10
+   phase_info: test_data/phase_info.csv
+   maternal_vcf: test_data/maternal_vcf.csv
+
+tool_parameters:
+   mapper: 'STAR_NMASK'
+   trimmomatic:
+      phred_version: 'phred33'
+      ILLUMINACLIP: '2:30:10:8:true'
+      more_flags: >-
+         LEADING:20
+         TRAILING:20
+         SLIDINGWINDOW:5:20
+         MINLEN:36
+   star: >-
+         --outFilterType BySJout
+         --outFilterMultimapNmax 1
+         --alignSJoverhangMin 8
+         --alignSJDBoverhangMin 1
+         --outFilterMismatchNmax 999
+         --outFilterMismatchNoverReadLmax 0.04
+         --alignIntronMin 20
+         --alignIntronMax 1000000
+         --alignMatesGapMax 1000000
+   gsnap: >-
+         --read-group-platform ILLUMINA
+   aln_filter_flags: '-f 2 -F 512 -q20'
+   asereadcounter_flags: >-
+         -min-depth 1
+         --min-mapping-quality 255
+         --min-base-quality 20
+         --count-overlap-reads-handling COUNT_FRAGMENTS_REQUIRE_SAME_BASE

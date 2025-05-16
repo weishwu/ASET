@@ -1,0 +1,42 @@
+task_id	hash	native_id	name	status	exit	submit	duration	realtime	%cpu	peak_rss	peak_vmem	rchar	wchar
+11	79/608240	25038951	get_pandas_version (pandas version)	CACHED	0	2025-05-15 21:02:03.551	3.3s	1.3s	87.4%	20.8 MB	166.2 MB	13.5 MB	306 B
+7	90/70cf4a	25038955	get_aselux_version (ASElux version)	CACHED	0	2025-05-15 21:02:03.699	3.2s	23ms	27.6%	0	0	72 KB	250 B
+8	06/239b96	25038953	get_multiqc_version (multiqc version)	CACHED	0	2025-05-15 21:02:03.627	38.2s	2.8s	90.9%	87.9 MB	289.5 MB	29.7 MB	306 B
+2	d2/1e67b5	25038952	get_bedtools_version (bedtools version)	CACHED	0	2025-05-15 21:02:03.588	3.3s	48ms	48.3%	3.1 MB	4.2 MB	87.7 KB	288 B
+9	6e/5aaa1e	25038947	get_gsnap_version (GSNAP version)	CACHED	0	2025-05-15 21:02:03.392	3.4s	0ms	72.2%	3.2 MB	4.3 MB	97.8 KB	1.2 KB
+17	d9/48536d	25038962	trimmomatic (trimmomatic on raw reads: 8174-CV-86)	CACHED	0	2025-05-15 21:02:03.960	37.9s	2s	576.5%	299.2 MB	6.4 GB	8.3 MB	3 MB
+4	e8/13afe7	25038958	genome_link (genome_link)	CACHED	0	2025-05-15 21:02:03.812	1m 43s	42.4s	39.0%	4.7 MB	13.6 MB	2.9 GB	9 KB
+13	63/06cd16	25038959	get_trimmomatic_version (trimmomatic version)	CACHED	0	2025-05-15 21:02:03.849	38s	2s	32.5%	29.8 MB	2.5 GB	3.8 MB	270 B
+12	4d/61452c	25038950	get_r_version (R version)	CACHED	0	2025-05-15 21:02:03.514	3.3s	239ms	29.8%	3.8 MB	7.2 MB	147.2 KB	674 B
+15	dc/e005cc	25038963	trimmomatic (trimmomatic on raw reads: 123878)	CACHED	0	2025-05-15 21:02:03.998	37.8s	2s	520.1%	410.1 MB	6.3 GB	8.3 MB	3.1 MB
+1	da/18d75a	25038949	get_fastqc_version (fastqc version)	CACHED	0	2025-05-15 21:02:03.476	3.4s	0ms	78.4%	15.8 MB	221.7 MB	1.2 MB	296 B
+10	57/a29f40	25038948	get_ngsutils_version (ngsutils version)	CACHED	0	2025-05-15 21:02:03.436	38.4s	2.7s	99.0%	54.8 MB	79.6 MB	7.9 MB	29.4 KB
+6	e9/49c6f4	25038957	gtf_to_df (gtf_to_df)	CACHED	0	2025-05-15 21:02:03.776	1m 43s	1m 29s	136.8%	35.2 GB	44 GB	3.4 GB	2.5 GB
+14	6a/07af12	25038954	get_star_version (STAR version)	CACHED	0	2025-05-15 21:02:03.664	3.2s	1s	50.6%	8.8 MB	16.8 MB	120.1 KB	302 B
+3	f4/a97e8b	25038956	get_gatk_version (gatk version)	CACHED	0	2025-05-15 21:02:03.736	38.1s	3s	90.2%	216.5 MB	32.1 GB	46.2 MB	776 B
+5	12/80c501	25038960	gtf_to_refflat (gtf_to_refflat)	CACHED	0	2025-05-15 21:02:03.885	37.9s	34s	43.9%	757.4 MB	769 MB	1.5 GB	155.1 MB
+16	17/7856ae	25038964	fastqc_raw (fastqc_raw 123878)	CACHED	0	2025-05-15 21:02:04.035	37.8s	7s	76.4%	238 MB	2.9 GB	22.2 MB	3.4 MB
+18	3a/a0c694	25038961	fastqc_raw (fastqc_raw 8174-CV-86)	CACHED	0	2025-05-15 21:02:03.920	37.9s	10s	61.9%	231.5 MB	2.9 GB	22.3 MB	3.5 MB
+20	e5/9154b8	25038983	genome_dict (genome_dict)	CACHED	0	2025-05-15 21:03:47.047	39.8s	11s	95.0%	1.6 GB	32.1 GB	2.9 GB	724.2 KB
+21	84/e187dd	25038984	aselux_routine:aselux_index_genome (aselux_index_genome)	CACHED	0	2025-05-15 21:03:47.214	6m 30s	6m 19s	90.5%	31.6 GB	33.7 GB	4.3 GB	16.6 GB
+19	60/3bfc28	25038982	extract_exons_genes (extract_exons_genes)	CACHED	0	2025-05-15 21:03:46.870	39.9s	19.6s	86.3%	2.6 GB	3.7 GB	678.8 MB	157.3 MB
+24	f4/9bfc4e	25038989	exon_merge_by_gene (exon_merge_by_gene)	CACHED	0	2025-05-15 21:04:26.879	39.9s	6.4s	90.9%	726.4 MB	820.1 MB	409.2 MB	284.8 MB
+23	91/d38a6a	25038971	fastqc_trimmed (fastqc_trimmed 123878)	CACHED	0	2025-05-15 21:02:41.995	39.8s	7s	83.1%	250.1 MB	2.9 GB	21.9 MB	3.3 MB
+22	31/079940	25038972	fastqc_trimmed (fastqc_trimmed 8174-CV-86)	CACHED	0	2025-05-15 21:02:42.030	39.8s	7s	79.9%	230.8 MB	2.9 GB	21.9 MB	3.4 MB
+25	8b/63ae13	25038970	version_report (version_report)	CACHED	0	2025-05-15 21:02:41.902	4.9s	106ms	13.4%	4.8 MB	20.4 MB	124.4 KB	392 B
+26	50/173fdb	25039032	aselux_routine:aselux_ase (aselux: 8174-CV-86)	CACHED	0	2025-05-15 21:10:16.915	1m 40s	1m 33s	32.5%	20.2 GB	20.9 GB	53.8 GB	18.1 MB
+27	94/0832b7	25039033	aselux_routine:aselux_ase (aselux: 123878)	CACHED	0	2025-05-15 21:10:16.952	1m 40s	1m 33s	33.2%	20.2 GB	20.9 GB	53.8 GB	18.1 MB
+29	f5/90c6ed	25039050	aselux_routine:aselux_output_parse (aselux_output_parse: 8174-CV-86)	CACHED	0	2025-05-15 21:11:56.891	4.9s	1.4s	85.2%	16.4 MB	38.9 MB	14 MB	17.7 KB
+30	1a/23493b	25039051	aselux_routine:aselux_output_parse (aselux_output_parse: 123878)	CACHED	0	2025-05-15 21:11:56.937	4.9s	1.4s	84.6%	17.6 MB	106 MB	14 MB	17.1 KB
+28	c6/1bc069	25038978	multiqc_from_fastq_aselux (multiqc_from_fastq_aselux)	CACHED	0	2025-05-15 21:03:21.892	39.9s	18.7s	34.6%	113.7 MB	309.8 MB	103.9 MB	36.1 MB
+31	cb/7f6b79	25039052	ase_count_concat (ase_count_concat)	CACHED	0	2025-05-15 21:12:01.903	4.9s	77ms	23.2%	2.8 MB	12.6 MB	410.1 KB	136.7 KB
+32	1b/65148a	25039053	ase_x_exons_genes (ase_x_exons_genes)	CACHED	0	2025-05-15 21:12:06.902	4.9s	486ms	82.2%	3.1 MB	4.2 MB	33.6 MB	385.3 KB
+34	b9/219e0b	25039054	ase_hetsnp_ase (ase_hetsnp_ase)	CACHED	0	2025-05-15 21:12:06.952	4.9s	2.4s	86.6%	146.2 MB	519.3 MB	22.7 MB	9.6 KB
+35	aa/1ba24d	25039056	ase_exon_label (ase_exon_label)	CACHED	0	2025-05-15 21:12:11.895	4.9s	1.4s	85.3%	15.5 MB	36.1 MB	13.6 MB	20.3 KB
+36	34/5c03cb	25039059	ase_hetsnp_add_genetype (ase_hetsnp_add_genetype)	CACHED	0	2025-05-15 21:12:16.902	4.9s	1.5s	85.5%	16.6 MB	39 MB	19.4 MB	19.6 KB
+37	b7/74c08d	25039060	ase_hetsnp_add_phasing (ase_hetsnp_add_phasing)	CACHED	0	2025-05-15 21:12:21.898	4.9s	1.4s	83.9%	16.7 MB	39 MB	13.6 MB	24.3 KB
+33	c4/fd8088	25039055	ase_homref_add_matGT (ase_homref_add_matGT)	CACHED	0	2025-05-15 21:12:08.085	3.8s	1.9s	80.6%	159.2 MB	534.7 MB	17.5 MB	662 B
+38	9c/ecca0b	25039057	ase_homref_x_exons_genes (ase_homref_x_exons_genes)	CACHED	0	2025-05-15 21:12:11.936	4.9s	43ms	17.5%	3.2 MB	4.2 MB	98.1 KB	468 B
+39	dd/f16d2c	25039061	ase_hetsnp_maternalcontam (ase_hetsnp_maternalcontam)	CACHED	0	2025-05-15 21:12:26.889	4.9s	1.3s	85.0%	17.3 MB	39 MB	13.5 MB	24.4 KB
+40	78/b34834	25039062	ase_data_rds (ase_data_rds)	CACHED	0	2025-05-15 21:12:31.884	39.9s	6.2s	95.7%	345.7 MB	436.7 MB	33.3 MB	3.6 MB
+41	4c/ddd859	25039063	qc_summary_from_fastq_aselux (qc_summary_from_fastq_aselux)	CACHED	0	2025-05-15 21:12:31.931	4.9s	1.3s	98.1%	117.4 MB	477.6 MB	14.6 MB	1.5 KB

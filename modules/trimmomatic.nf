@@ -1,5 +1,7 @@
 process trimmomatic {
     tag "trimmomatic on raw reads: $sample"
+    label "trimmomatic"
+
     publishDir "${params.dirs.results_dir}/qc/trimmed_reads", mode: 'copy', pattern: "*.gz"
     publishDir "${params.dirs.results_dir}/qc/trimmed_reads/", mode: 'copy', pattern: "*.log"
 

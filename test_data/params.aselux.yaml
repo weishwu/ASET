@@ -1,0 +1,28 @@
+dirs:
+   results_dir: test_data/reports_aselux/results/
+
+
+support_files:
+   genome_fa: test_data/refs/hg38.fa
+   gtf: test_data/refs/gencode.v41.annotation.gtf
+   adapters: test_data/refs/TruSeq3-PE-2.fa
+  
+# "phase_info" and "maternal_vcf" are optional
+data:
+   routine: 'from_fastq'
+   sample_sheet: test_data/sample_sheet.from_fastq.more_snps.csv
+   rna_readlen: 151
+   ase_depth_min: 10
+   phase_info: test_data/phase_info.csv
+   maternal_vcf: test_data/maternal_vcf.csv
+
+tool_parameters:
+   mapper: 'ASElux'
+   trimmomatic:
+      phred_version: 'phred33'
+      ILLUMINACLIP: '2:30:10:8:true'
+      more_flags: >-
+         LEADING:20
+         TRAILING:20
+         SLIDINGWINDOW:5:20
+         MINLEN:36

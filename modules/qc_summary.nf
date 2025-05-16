@@ -10,6 +10,7 @@ process qc_summary_from_fastq {
 
     input:
     path(ase_hetsnp)
+    path(sample_sheet)
     path(trimmomatic_logs)
     path(aln_logs)
     path(hc_flagstat)
@@ -23,9 +24,9 @@ process qc_summary_from_fastq {
     script:
     """
     if [[ (${params.tool_parameters.mapper} == 'STAR_WASP') || (${params.tool_parameters.mapper} == 'STAR_NMASK') ]]; then
-      qc_summary_from_fastq_star_aln.py ${ase_hetsnp} ${params.data.sample_sheet} QC_summary.txt ${params.data.ase_depth_min} ${task.cpus} 2>&1|tee >qc_summary.log
+      qc_summary_from_fastq_star_aln.py ${ase_hetsnp} ${sample_sheet} QC_summary.txt ${params.data.ase_depth_min} ${task.cpus} 2>&1|tee >qc_summary.log
     elif [[ ${params.tool_parameters.mapper} == 'GSNAP' ]]; then
-      qc_summary_from_fastq_gsnap_aln.py ${ase_hetsnp} ${params.data.sample_sheet} QC_summary.txt ${params.data.ase_depth_min} ${task.cpus} 2>&1|tee >qc_summary.log
+      qc_summary_from_fastq_gsnap_aln.py ${ase_hetsnp} ${sample_sheet} QC_summary.txt ${params.data.ase_depth_min} ${task.cpus} 2>&1|tee >qc_summary.log
     fi
     """ 
 }
@@ -42,6 +43,7 @@ process qc_summary_from_bam {
 
     input:
     path(ase_hetsnp)
+    path(sample_sheet)
     path(hc_flagstat)
     path(dedup_flagstat)
     path(hc_metrics)
@@ -52,7 +54,7 @@ process qc_summary_from_bam {
 
     script:
     """
-    qc_summary_from_bam.py ${ase_hetsnp} ${params.data.sample_sheet} QC_summary.txt ${params.data.ase_depth_min} ${task.cpus} \
+    qc_summary_from_bam.py ${ase_hetsnp} ${sample_sheet} QC_summary.txt ${params.data.ase_depth_min} ${task.cpus} \
     2>&1|tee >qc_summary.log
     """ 
 }
@@ -69,6 +71,7 @@ process qc_summary_from_fastq_aselux {
 
     input:
     path(ase_hetsnp)
+    path(sample_sheet)
     path(trimmomatic_logs)
     path(snps)
 
@@ -77,6 +80,6 @@ process qc_summary_from_fastq_aselux {
 
     script:
     """
-    qc_summary_from_fastq_aselux.py ${ase_hetsnp} ${params.data.sample_sheet} QC_summary.txt ${params.data.ase_depth_min} ${task.cpus} 2>&1|tee >qc_summary.log
+    qc_summary_from_fastq_aselux.py ${ase_hetsnp} ${sample_sheet} QC_summary.txt ${params.data.ase_depth_min} ${task.cpus} 2>&1|tee >qc_summary.log
     """ 
 }

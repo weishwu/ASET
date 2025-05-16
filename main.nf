@@ -36,7 +36,10 @@ if (params.data.routine == 'from_fastq') {
 
 genome_fa_ch = Channel.fromPath(params.support_files.genome_fa, checkIfExists:true)
 gtf_ch = Channel.fromPath(params.support_files.gtf, checkIfExists:true)
+
+if ((!params.data.routine == 'from_bam') || (params.tool_parameters.mapper != 'ASElux')) {
 rRNA_tRNA_ch = Channel.fromPath(params.support_files.rRNA_tRNA_bed, checkIfExists:true)
+}
 
 include { genome_link } from './modules/genome_prep.nf'
 include { genome_dict } from './modules/genome_prep.nf'
@@ -72,11 +75,24 @@ include { qc_summary_from_fastq_aselux } from './modules/qc_summary.nf'
 include { prep_ase_data_for_plot } from './modules/prep_ase_data_for_plot.nf'
 include { ase_data_rds } from './modules/ase_data_rds.nf'
 include { ase_homref_x_exons_genes } from './modules/ase_homref_x_exons_genes.nf'
+include { get_fastqc_version } from './modules/get_versions.nf'
+include { get_ngsutils_version } from './modules/get_versions.nf'
+include { get_bedtools_version } from './modules/get_versions.nf'
+include { get_gatk_version } from './modules/get_versions.nf'
+include { get_gsnap_version } from './modules/get_versions.nf'
+include { get_multiqc_version } from './modules/get_versions.nf'
+include { get_star_version } from './modules/get_versions.nf'
+include { get_trimmomatic_version } from './modules/get_versions.nf'
+include { get_aselux_version } from './modules/get_versions.nf'
+include { get_pandas_version } from './modules/get_versions.nf'
+include { get_r_version } from './modules/get_versions.nf'
+include { version_report } from './modules/version_report.nf'
 
 include { gsnap_routine } from './subworkflows/gsnap_routine.nf'
 include { star_wasp_routine } from './subworkflows/star_wasp_routine.nf'
 include { star_nmask_routine } from './subworkflows/star_nmask_routine.nf'
 include { aselux_routine } from './subworkflows/aselux_routine.nf'
+
 
 workflow {
 
@@ -84,7 +100,6 @@ workflow {
     gtf_ch | gtf_to_df | extract_exons_genes  
     gtf_ch | gtf_to_refflat
     extract_exons_genes.out.exons_bed | exon_merge_by_gene
-    rRNA_tRNA_list(rRNA_tRNA_ch, genome_dict.out)
 
  if (params.data.routine == 'from_fastq') {
 
@@ -140,6 +155,8 @@ workflow {
 
  if (params.tool_parameters.mapper != "ASElux") {
     aln_filter(raw_aln)
+
+    rRNA_tRNA_list(rRNA_tRNA_ch, genome_dict.out)
 
     aln_hc_metrics(
        aln_filter.out.aln_hc_bam,
@@ -199,7 +216,6 @@ workflow {
        extract_exons_genes.out.genes_bed)
 
     ase_hetsnp = ase_hetsnp_add_genetype.out
-    ase_hetsnp.view()
 
 // if there is phasing data, use it to assign parental allelic counts
   
@@ -218,6 +234,7 @@ workflow {
     phase_info_files = phase_info.map { sample, phase_info -> [phase_info]}
     ase_hetsnp_add_phasing(
        ase_hetsnp,
+       Channel.fromPath(params.data.phase_info, checkIfExists:true),
        phase_info_files.collect())
 
     ase_hetsnp = ase_hetsnp_add_phasing.out
@@ -240,6 +257,7 @@ workflow {
    
     ase_homref_add_matGT(
        ase_count_concat.out.ase_count_homref_txt,
+       Channel.fromPath(params.data.maternal_vcf, checkIfExists:true),
        mat_vcf_files.collect())
 
     ase_homref_x_exons_genes(
@@ -271,6 +289,7 @@ workflow {
 
     qc_summary_from_fastq(
            ase_hetsnp,
+           Channel.fromPath(params.data.sample_sheet, checkIfExists:true),
            trimmomatic.out.trimmomatic_log.collect(),
            aln_log.collect(),
            aln_filter.out.aln_hc_flagstat.collect(),
@@ -291,6 +310,7 @@ workflow {
 
     qc_summary_from_fastq_aselux(
            ase_hetsnp,
+           Channel.fromPath(params.data.sample_sheet, checkIfExists:true),
            trimmomatic.out.trimmomatic_log.collect(),
            samples_ch.map {sample, read1, read2, snps, snps_with_ref -> [snps]}.collect())
  }
@@ -303,10 +323,66 @@ workflow {
 
     qc_summary_from_bam(
            ase_hetsnp,
+           Channel.fromPath(params.data.sample_sheet, checkIfExists:true),
            aln_filter.out.aln_hc_flagstat.collect(),
            aln_strand_split.out.aln_hc_dedup_flagstat.collect(),
            aln_hc_metrics.out.collect(),
            samples_ch.map {sample, bam, snps, snps_with_ref -> [snps]}.collect())
  }
+
+    get_aselux_version()
+    get_bedtools_version()
+    get_fastqc_version()
+    get_gatk_version()
+    get_gsnap_version()
+    get_multiqc_version()
+    get_ngsutils_version()
+    get_pandas_version()
+    get_r_version()
+    get_star_version()
+    get_trimmomatic_version()
+    
+ if ((params.data.routine == 'from_fastq') && ((params.tool_parameters.mapper == "STAR_WASP") || (params.tool_parameters.mapper == "STAR_NMASK"))) {
+    version_report(
+        get_star_version.out.concat(
+        get_gatk_version.out).concat(
+        get_fastqc_version.out).concat(
+        get_trimmomatic_version.out).concat(
+        get_bedtools_version.out).concat(
+        get_multiqc_version.out).concat(
+        get_pandas_version.out).concat(
+        get_r_version.out).collect())
+ }
+
+ if ((params.data.routine == 'from_fastq') && (params.tool_parameters.mapper == "GSNAP")) {
+    version_report(
+        get_gsnap_version.out.concat(
+        get_gatk_version.out).concat(
+        get_fastqc_version.out).concat(
+        get_trimmomatic_version.out).concat(
+        get_bedtools_version.out).concat(
+        get_multiqc_version.out).concat(
+        get_pandas_version.out).concat(
+        get_r_version.out).collect())
+ }
+
+ if ((params.data.routine == 'from_fastq') && (params.tool_parameters.mapper == "ASElux")) {
+    version_report(
+        get_fastqc_version.out.concat(
+        get_trimmomatic_version.out).concat(
+        get_bedtools_version.out).concat(
+        get_multiqc_version.out).concat(
+        get_pandas_version.out).concat(
+        get_r_version.out).collect())
+ }
+
+ if (params.data.routine == 'from_bam') {
+    multiqc_version_report(
+        get_bedtools_version.out.concat(
+        get_multiqc_version.out).concat(
+        get_pandas_version.out).concat(
+        get_r_version.out).collect())
+ }
+
 }
 
