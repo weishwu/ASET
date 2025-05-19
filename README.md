@@ -2,7 +2,7 @@
 
 This nextflow pipeline processes Illumina RNA-Seq reads and generates a data frame that includes allele specific read count data at each SNP site across the samples, annotation for genes and exons. The output data can be taken by the [ASEplot](https://github.com/weishwu/ASEplot) R package for figure generation and genetic ASE test.
 
-## Main steps in ASEprep:
+## Main steps in ASET:
 
 - RNA-Seq reads are trimmed using `Trimmomatic`.
 - One of four alignment approaches can be chosen:
