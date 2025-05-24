@@ -6,7 +6,7 @@ from multiprocessing import Pool
 
 gtf_fn = sys.argv[1]
 gtf_df_out = sys.argv[2]
-n_cores = int(sys.argv[3]) if len(sys.argv) > 3 else 1
+n_cores = int(sys.argv[3]) if len(sys.argv) > 2 else 1
 
 gtf = pd.read_csv(gtf_fn, comment='#', sep='\t', header=None)
 gtf.columns = ['chr', 'group', 'feature', 'start', 'end', 'score1', 'strand', 'score2', 'info']
