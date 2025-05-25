@@ -235,7 +235,7 @@ workflow {
     ase_hetsnp_add_phasing(
        ase_hetsnp,
        Channel.fromPath(params.data.phase_info, checkIfExists:true),
-       phase_info_files.collect())
+       phase_info_files.collect().flatten().unique())
 
     ase_hetsnp = ase_hetsnp_add_phasing.out
   }
@@ -258,7 +258,7 @@ workflow {
     ase_homref_add_matGT(
        ase_count_concat.out.ase_count_homref_txt,
        Channel.fromPath(params.data.maternal_vcf, checkIfExists:true),
-       mat_vcf_files.collect())
+       mat_vcf_files.collect().flatten().unique())
 
     ase_homref_x_exons_genes(
        ase_homref_add_matGT.out,

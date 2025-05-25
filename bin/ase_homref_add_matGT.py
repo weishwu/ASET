@@ -2,21 +2,26 @@
 
 import sys
 import pandas as pd
+from multiprocessing import Pool
 
 ase_homref_fn = sys.argv[1]
 smp_mat_fn = sys.argv[2]
 ase_homref_out = sys.argv[3]
+n_cores = int(sys.argv[4]) if len(sys.argv) > 3 else 1
 
 smp_mat = pd.read_csv(smp_mat_fn,dtype=str).set_index('sample').to_dict(orient='index')
 
-MatGTdata=[]
-
-for i in smp_mat.keys():
+def add_matgt(i):
   fn = list(smp_mat[i].values())[0]
   if not (pd.isnull(fn) | (fn == '.')):
     snps = pd.read_csv(fn,sep='\t',dtype=str,comment='#',header=None,compression='gzip').iloc[:,[0,1,-1]].set_axis(['contig','position','MatGTinfo'],axis=1).assign(RNAid = i)
     snps['anyMatGT'] = snps.iloc[:,-2].str.split(':',expand=True).iloc[:,0]
-    MatGTdata.append(snps.drop('MatGTinfo',axis=1))
+    return snps.drop('MatGTinfo',axis=1)
+  else:
+    return pd.DataFrame(columns=['contig', 'position', 'RNAid', 'anyMatGT'])
+
+with Pool(n_cores) as pool:
+    MatGTdata = pool.map(add_matgt, smp_mat.keys())
 
 MatGTall=pd.concat(MatGTdata,axis=0)
 
