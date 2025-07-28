@@ -17,16 +17,16 @@ process trimmomatic {
     """
     export JAVA_OPTIONS=-Xmx${task.memory.toGiga()}g
     trimmomatic PE \
-      -threads ${task.cpus} \
-      -${params.tool_parameters.trimmomatic.phred_version} \
-      ${read1} \
-      ${read2} \
-      Sample_${sample}_R1_trimmed.fastq.gz \
-      Sample_${sample}_R1_unpaired.fastq.gz \
-      Sample_${sample}_R2_trimmed.fastq.gz \
-      Sample_${sample}_R2_unpaired.fastq.gz \
-      ILLUMINACLIP:${adapters}:${params.tool_parameters.trimmomatic.ILLUMINACLIP} \
-      ${params.tool_parameters.trimmomatic.more_flags} \
+        -threads ${task.cpus} \
+        -${params.tool_parameters.trimmomatic.phred_version} \
+        ${read1} \
+        ${read2} \
+        Sample_${sample}_R1_trimmed.fastq.gz \
+        Sample_${sample}_R1_unpaired.fastq.gz \
+        Sample_${sample}_R2_trimmed.fastq.gz \
+        Sample_${sample}_R2_unpaired.fastq.gz \
+        ILLUMINACLIP:${adapters}:${params.tool_parameters.trimmomatic.ILLUMINACLIP} \
+        ${params.tool_parameters.trimmomatic.more_flags} \
     >Sample_${sample}_trimmomatic.log 2>&1
     """ 
 }

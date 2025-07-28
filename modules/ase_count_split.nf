@@ -9,7 +9,7 @@ process ase_count_split {
     path("*.aln.hc.dedup.ASE.hetSNP.txt"), emit: ase_count_hetsnp_txt
     path("*.aln.hc.dedup.ASE.homSNP.txt"), emit: ase_count_homsnp_txt
     path("*.aln.hc.dedup.ASE.homRef.txt"), emit: ase_count_homref_txt
- 
+
     script:
     """
     ase_count_split.py ${sample} ${snps} ${sense_ase} ${antisense_ase} ${sample}.aln.hc.dedup.ASE.hetSNP.txt ${sample}.aln.hc.dedup.ASE.homSNP.txt ${sample}.aln.hc.dedup.ASE.homRef.txt \

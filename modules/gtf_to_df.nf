@@ -10,7 +10,7 @@ process gtf_to_df {
     
     output:
     path("gtf_flat.txt"), emit: gtf_to_df_txt
- 
+
     script:
     """
     flat_gtf.py ${gtf} gtf_flat.txt ${task.cpus} \

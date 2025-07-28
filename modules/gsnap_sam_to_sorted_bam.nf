@@ -1,7 +1,7 @@
 process gsnap_sam_to_sorted_bam {
     tag "gsnap_sam_to_sorted_bam: ${sample}"
     label "ngsutils"
-   
+
     publishDir "${params.dirs.results_dir}/aln/01.raw_aln", mode: 'copy', pattern: "*ba?"
 
     input:

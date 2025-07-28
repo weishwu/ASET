@@ -5,9 +5,6 @@ process qc_summary_from_fastq {
 
     publishDir "${params.dirs.results_dir}/qc/", mode: 'copy', pattern: "*txt"
 
-    when:
-    (params.data.routine == 'from_fastq') && (params.tool_parameters.mapper != 'ASElux')
-
     input:
     path(ase_hetsnp)
     path(sample_sheet)
@@ -20,6 +17,9 @@ process qc_summary_from_fastq {
 
     output:
     path("QC_summary.txt"), emit: ase_hetsnp
+
+    when:
+    (params.data.routine == 'from_fastq') && (params.tool_parameters.mapper != 'ASElux')
 
     script:
     """
@@ -38,9 +38,6 @@ process qc_summary_from_bam {
 
     publishDir "${params.dirs.results_dir}/qc/", mode: 'copy', pattern: "*txt"
 
-    when:
-    params.data.routine == 'from_bam'
-
     input:
     path(ase_hetsnp)
     path(sample_sheet)
@@ -51,6 +48,9 @@ process qc_summary_from_bam {
 
     output:
     path("QC_summary.txt"), emit: ase_hetsnp
+
+    when:
+    params.data.routine == 'from_bam'
 
     script:
     """
@@ -66,9 +66,6 @@ process qc_summary_from_fastq_aselux {
 
     publishDir "${params.dirs.results_dir}/qc/", mode: 'copy', pattern: "*txt"
 
-    when:
-    (params.data.routine == 'from_fastq') && (params.tool_parameters.mapper == 'ASElux')
-
     input:
     path(ase_hetsnp)
     path(sample_sheet)
@@ -77,6 +74,9 @@ process qc_summary_from_fastq_aselux {
 
     output:
     path("QC_summary.txt"), emit: ase_hetsnp
+
+    when:
+    (params.data.routine == 'from_fastq') && (params.tool_parameters.mapper == 'ASElux')
 
     script:
     """

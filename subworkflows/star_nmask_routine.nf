@@ -10,15 +10,15 @@ workflow star_nmask_routine {
         trimmed_reads
     
     main:
-         nmask_genome(
+        nmask_genome(
             genome,
             samples.map { sample, read1, read2, snps, snps_with_ref -> [ sample, snps ]})
 
-         star_nmaskedgenome_index(
+        star_nmaskedgenome_index(
             gtf,
             nmask_genome.out)
 
-          star_nmaskedgenome_aln(
+        star_nmaskedgenome_aln(
             star_nmaskedgenome_index.out.join(trimmed_reads, by: 0))
 
     emit:
