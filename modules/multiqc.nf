@@ -5,9 +5,6 @@ process multiqc_from_fastq {
   publishDir "${params.dirs.results_dir}/qc/", mode: 'copy', pattern: "*data"
   publishDir "${params.dirs.results_dir}/qc/", mode: 'copy', pattern: "*.html"
 
-  when:
-  params.data.routine == 'from_fastq'
-
   input:
   path(fastqc_raw_zip)
   path(fastqc_raw_html)
@@ -39,9 +36,6 @@ process multiqc_from_bam {
   publishDir "${params.dirs.results_dir}/qc/", mode: 'copy', pattern: "*data"
   publishDir "${params.dirs.results_dir}/qc/", mode: 'copy', pattern: "*.html"
 
-  when:
-  params.data.routine == 'from_bam'
-
   input:
   path(aln_hc_metrics)
   path(aln_hc_dedup_metrics)
@@ -63,9 +57,6 @@ process multiqc_from_fastq_aselux {
 
   publishDir "${params.dirs.results_dir}/qc/", mode: 'copy', pattern: "*data"
   publishDir "${params.dirs.results_dir}/qc/", mode: 'copy', pattern: "*.html"
-
-  when:
-  (params.data.routine == 'from_fastq') && (params.tool_parameters.mapper == "ASElux")
 
   input:
   path(fastqc_raw_zip)

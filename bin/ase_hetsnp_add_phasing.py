@@ -12,7 +12,7 @@ smp_phase = pd.read_csv(sample_phase_fn,dtype=str).set_index('sample').to_dict(o
 
 phasingData={}
 for i in smp_phase.keys():
-   fn = list(smp_phase[i].values())[0]
+   fn = list(smp_phase[i].values())[0].split('/')[-1]
    if not (pd.isnull(fn) | (fn == '.')):
       phasingData[i] = pd.read_csv(fn,sep='\t',low_memory=False).assign(RNAid = i)
 

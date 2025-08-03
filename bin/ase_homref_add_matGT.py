@@ -12,7 +12,7 @@ n_cores = int(sys.argv[4]) if len(sys.argv) > 3 else 1
 smp_mat = pd.read_csv(smp_mat_fn,dtype=str).set_index('sample').to_dict(orient='index')
 
 def add_matgt(i):
-  fn = list(smp_mat[i].values())[0]
+  fn = list(smp_mat[i].values())[0].split('/')[-1]
   if not (pd.isnull(fn) | (fn == '.')):
     snps = pd.read_csv(fn,sep='\t',dtype=str,comment='#',header=None,compression='gzip').iloc[:,[0,1,-1]].set_axis(['contig','position','MatGTinfo'],axis=1).assign(RNAid = i)
     snps['anyMatGT'] = snps.iloc[:,-2].str.split(':',expand=True).iloc[:,0]

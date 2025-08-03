@@ -37,7 +37,7 @@ if (params.data.routine == 'from_fastq') {
 genome_fa_ch = Channel.fromPath(params.support_files.genome_fa, checkIfExists:true)
 gtf_ch = Channel.fromPath(params.support_files.gtf, checkIfExists:true)
 
-if ((!params.data.routine == 'from_bam') || (params.tool_parameters.mapper != 'ASElux')) {
+if ((params.data.routine != 'from_bam') || (params.tool_parameters.mapper != 'ASElux')) {
 rRNA_tRNA_ch = Channel.fromPath(params.support_files.rRNA_tRNA_bed, checkIfExists:true)
 }
 
@@ -105,7 +105,7 @@ workflow {
 
     fastqc_raw(samples_ch.map { sample, read1, read2, snps, snps_with_ref -> [ sample, read1, read2 ] })    
     
-    adapters = channel.fromPath(params.support_files.adapters, checkIfExists:true)
+    adapters = Channel.fromPath(params.support_files.adapters, checkIfExists:true)
     trimmomatic(
        samples_ch.map { sample, read1, read2, snps, snps_with_ref -> [ sample, read1, read2 ] },
        adapters.first())
@@ -225,17 +225,15 @@ workflow {
       .fromPath(params.data.phase_info, checkIfExists:true)
       .splitCsv(header: true)
       .filter { row -> row.phase_info != '.' }
-      .map { row ->
-          def sample = row.sample
-          def phase_info = row.phase_info
-          tuple(sample, phase_info)}
-      .set { phase_info }
+      .map { row -> file(row.phase_info) }
+      .collect()
+      .map { it.unique() }
+      .set { phase_info_files }
 
-    phase_info_files = phase_info.map { sample, phase_info -> [phase_info]}
     ase_hetsnp_add_phasing(
        ase_hetsnp,
        Channel.fromPath(params.data.phase_info, checkIfExists:true),
-       phase_info_files.collect().flatten().unique())
+       phase_info_files)
 
     ase_hetsnp = ase_hetsnp_add_phasing.out
   }
@@ -247,18 +245,15 @@ workflow {
        .fromPath(params.data.maternal_vcf, checkIfExists:true)
        .splitCsv(header: true)
        .filter { row -> row.mat_snps != '.' }
-       .map { row ->
-              def sample = row.sample
-              def mat_snps = row.mat_snps
-              tuple(sample, mat_snps)}
-       .set { mat_vcf }
+       .map { row -> file(row.mat_snps) }
+       .collect()
+       .map { it.unique() }
+       .set { mat_vcf_files }
 
-    mat_vcf_files = mat_vcf.map { sample, mat_snps -> [mat_snps]}
-   
     ase_homref_add_matGT(
        ase_count_concat.out.ase_count_homref_txt,
        Channel.fromPath(params.data.maternal_vcf, checkIfExists:true),
-       mat_vcf_files.collect().flatten().unique())
+       mat_vcf_files)
 
     ase_homref_x_exons_genes(
        ase_homref_add_matGT.out,
@@ -377,7 +372,7 @@ workflow {
  }
 
  if (params.data.routine == 'from_bam') {
-    multiqc_version_report(
+    version_report(
         get_bedtools_version.out.concat(
         get_multiqc_version.out).concat(
         get_pandas_version.out).concat(

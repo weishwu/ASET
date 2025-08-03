@@ -1,3 +1,3 @@
 sample,phase_info
-123878,/nfs/turbo/lsa-bis/DNA_V4/phasing/FAM_122929_128574_122905_2/FAM_122929_128574_122905_2.phasing.final.txt
-8174-CV-86,/nfs/turbo/lsa-bis/DNA_V4/phasing/FAM_8365-CV-105merge_118441_118465_2/FAM_8365-CV-105merge_118441_118465_2.phasing.final.txt
+123878,test_data/phasing/FAM_122929_128574_122905_2.phasing.final.txt
+8174-CV-86,test_data/phasing/FAM_8365-CV-105merge_118441_118465_2.phasing.final.txt

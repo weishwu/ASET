@@ -5,9 +5,6 @@ process qc_summary_from_fastq {
 
     publishDir "${params.dirs.results_dir}/qc/", mode: 'copy', pattern: "*txt"
 
-    when:
-    (params.data.routine == 'from_fastq') && (params.tool_parameters.mapper != 'ASElux')
-
     input:
     path(ase_hetsnp)
     path(sample_sheet)
@@ -38,9 +35,6 @@ process qc_summary_from_bam {
 
     publishDir "${params.dirs.results_dir}/qc/", mode: 'copy', pattern: "*txt"
 
-    when:
-    params.data.routine == 'from_bam'
-
     input:
     path(ase_hetsnp)
     path(sample_sheet)
@@ -65,9 +59,6 @@ process qc_summary_from_fastq_aselux {
     label "py_parallel"
 
     publishDir "${params.dirs.results_dir}/qc/", mode: 'copy', pattern: "*txt"
-
-    when:
-    (params.data.routine == 'from_fastq') && (params.tool_parameters.mapper == 'ASElux')
 
     input:
     path(ase_hetsnp)
