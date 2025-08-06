@@ -104,13 +104,14 @@ workflow {
  if (params.data.routine == 'from_fastq') {
 
     fastqc_raw(samples_ch.map { sample, read1, read2, snps, snps_with_ref -> [ sample, read1, read2 ] })    
-    
-    adapters = Channel.fromPath(params.support_files.adapters, checkIfExists:true)
-    trimmomatic(
-       samples_ch.map { sample, read1, read2, snps, snps_with_ref -> [ sample, read1, read2 ] },
-       adapters.first())
+    if (params.tool_parameters.mapper != "ASElux") {
+       adapters = Channel.fromPath(params.support_files.adapters, checkIfExists:true)
+       trimmomatic(
+          samples_ch.map { sample, read1, read2, snps, snps_with_ref -> [ sample, read1, read2 ] },
+          adapters.first())
 
-    fastqc_trimmed(trimmomatic.out.trimmomatic_reads)
+       fastqc_trimmed(trimmomatic.out.trimmomatic_reads)
+    }
  }
 
  if ((params.tool_parameters.mapper == "STAR_WASP") && (params.data.routine == "from_fastq")) {
@@ -183,8 +184,7 @@ workflow {
        aselux_routine(
        genome_link.out.first(),
        gtf_ch.first(),
-       samples_ch,
-       trimmomatic.out.trimmomatic_reads)
+       samples_ch)
 
     ase_split_hetsnp = aselux_routine.out.ase_hetsnp.collect()
     ase_split_homsnp = aselux_routine.out.ase_homsnp.collect()
@@ -298,15 +298,11 @@ workflow {
 
     multiqc_from_fastq_aselux(
            fastqc_raw.out.fastqc_zip.collect(),
-           fastqc_raw.out.fastqc_html.collect(),
-           trimmomatic.out.trimmomatic_log.collect(),
-           fastqc_trimmed.out.fastqc_zip.collect(),
-           fastqc_trimmed.out.fastqc_html.collect())
+           fastqc_raw.out.fastqc_html.collect())
 
     qc_summary_from_fastq_aselux(
            ase_hetsnp,
            Channel.fromPath(params.data.sample_sheet, checkIfExists:true),
-           trimmomatic.out.trimmomatic_log.collect(),
            samples_ch.map {sample, read1, read2, snps, snps_with_ref -> [snps]}.collect())
  }
 
