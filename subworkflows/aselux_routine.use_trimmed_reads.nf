@@ -8,13 +8,14 @@ workflow aselux_routine {
         genome
         gtf
         samples
+        trimmed_reads
     
     main:
        aselux_index_genome(genome, gtf)
 
        aselux_ase(
           aselux_index_genome.out.first(),
-          samples.map { sample, read1, read2, snps, snps_with_ref -> [ sample, read1, read2, snps ] })
+          trimmed_reads.join(samples.map { sample, read1, read2, snps, snps_with_ref -> [ sample, snps ] }, by: 0))
        
        aselux_output_parse(aselux_ase.out.join(samples.map { sample, read1, read2, snps, snps_with_ref -> [ sample, snps ] }, by: 0))
 

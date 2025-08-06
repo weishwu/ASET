@@ -63,7 +63,6 @@ process qc_summary_from_fastq_aselux {
     input:
     path(ase_hetsnp)
     path(sample_sheet)
-    path(trimmomatic_logs)
     path(snps)
 
     output:
@@ -74,3 +73,27 @@ process qc_summary_from_fastq_aselux {
     qc_summary_from_fastq_aselux.py ${ase_hetsnp} ${sample_sheet} QC_summary.txt ${params.data.ase_depth_min} ${task.cpus} 2>&1|tee >qc_summary.log
     """ 
 }
+
+
+process qc_summary_from_trimmedfastq_aselux {
+    tag "qc_summary_from_trimmedfastq_aselux"
+    label "pandas"
+    label "py_parallel"
+
+    publishDir "${params.dirs.results_dir}/qc/", mode: 'copy', pattern: "*txt"
+
+    input:
+    path(ase_hetsnp)
+    path(sample_sheet)
+    path(trimmomatic_logs)
+    path(snps)
+
+    output:
+    path("QC_summary.txt"), emit: ase_hetsnp
+
+    script:
+    """
+    qc_summary_from_fastq_aselux.py ${ase_hetsnp} ${sample_sheet} QC_summary.txt ${params.data.ase_depth_min} ${task.cpus} 2>&1|tee >qc_summary.log
+    """
+}
+     
