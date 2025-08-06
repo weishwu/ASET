@@ -6,10 +6,10 @@ process aln_ase_count {
     tuple path(genome_fa), path(genome_fai)
     path(genome_dict)
     tuple val(sample), path(sense_bam), path(antisense_bam), path(sense_bai), path(antisense_bai), path(snps)
-    
+
     output:
     tuple val(sample), path("${sample}.aln.hc.dedup.sense.ASE.txt"), path("${sample}.aln.hc.dedup.antisense.ASE.txt")
- 
+
     script:
     """
     export JAVA_OPTIONS=-Xmx${task.memory.toGiga()}g
@@ -20,12 +20,12 @@ process aln_ase_count {
     for strand in sense antisense
     do 
     gatk ASEReadCounter ${params.tool_parameters.asereadcounter_flags} \
-       -R ${genome_fa} \
-       -I ${sample}.aln.hc.dedup.\${strand}.bam \
-       -V ${sample}.pseudoHet.vcf.gz \
-       -O ${sample}.aln.hc.dedup.\${strand}.ASE.txt \
-       --output-format TABLE \
-       --tmp-dir . \
+        -R ${genome_fa} \
+        -I ${sample}.aln.hc.dedup.\${strand}.bam \
+        -V ${sample}.pseudoHet.vcf.gz \
+        -O ${sample}.aln.hc.dedup.\${strand}.ASE.txt \
+        --output-format TABLE \
+        --tmp-dir . \
     2>&1|tee > ase_read_counter.${sample}.\${strand}.log
     done
     rm -f ${sample}.pseudoHet.vcf ${sample}.pseudoHet.vcf.gz

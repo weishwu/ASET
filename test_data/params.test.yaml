@@ -19,7 +19,7 @@ data:
    maternal_vcf: test_data/maternal_vcf.csv
 
 tool_parameters:
-   mapper: 'GSNAP'
+   mapper: 'ASElux'
    trimmomatic:
       phred_version: 'phred33'
       ILLUMINACLIP: '2:30:10:8:true'

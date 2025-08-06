@@ -12,13 +12,14 @@ process star_genome_index {
     script:
     """
     overhang=\$(echo ${params.data.rna_readlen} | awk '{print \$1-1}')
-    STAR --runThreadN ${task.cpus} \
-      --runMode genomeGenerate \
-      --genomeDir STAR_genome \
-      --genomeFastaFiles ${genome_fasta} \
-      --sjdbGTFfile ${gtf} \
-      --sjdbOverhang \${overhang} \
-      --limitGenomeGenerateRAM ${task.memory.toGiga()}000000000 \
+    STAR \
+        --runThreadN ${task.cpus} \
+        --runMode genomeGenerate \
+        --genomeDir STAR_genome \
+        --genomeFastaFiles ${genome_fasta} \
+        --sjdbGTFfile ${gtf} \
+        --sjdbOverhang \${overhang} \
+        --limitGenomeGenerateRAM ${task.memory.toGiga()}000000000 \
     2>&1|tee >STAR_genomeGenerate.log 2>&1
     """ 
 }

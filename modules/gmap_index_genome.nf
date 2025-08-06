@@ -12,10 +12,10 @@ process gmap_index_genome {
     """
     # -s numeric-alpha
     gmap_build \
-      -t ${task.cpus} \
-      -D gmap_genome \
-      -d gmap_genome \
-      ${genome_fasta} \
+        -t ${task.cpus} \
+        -D gmap_genome \
+        -d gmap_genome \
+        ${genome_fasta} \
     >gmap_index_genome.log 2>&1
     """ 
 }

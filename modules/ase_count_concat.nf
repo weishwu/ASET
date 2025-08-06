@@ -12,7 +12,7 @@ process ase_count_concat {
     path("ASE_hetSNP.txt"), emit: ase_count_hetsnp_txt
     path("ASE_homSNP.txt"), emit: ase_count_homsnp_txt
     path("ASE_homRef.txt"), emit: ase_count_homref_txt
- 
+
     script:
     """
     fn=`ls *.txt | head -1`

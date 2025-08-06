@@ -10,17 +10,17 @@ workflow aselux_routine {
         samples
     
     main:
-       aselux_index_genome(genome, gtf)
+        aselux_index_genome(genome, gtf)
 
-       aselux_ase(
+        aselux_ase(
           aselux_index_genome.out.first(),
           samples.map { sample, read1, read2, snps, snps_with_ref -> [ sample, read1, read2, snps ] })
        
-       aselux_output_parse(aselux_ase.out.join(samples.map { sample, read1, read2, snps, snps_with_ref -> [ sample, snps ] }, by: 0))
+        aselux_output_parse(aselux_ase.out.join(samples.map { sample, read1, read2, snps, snps_with_ref -> [ sample, snps ] }, by: 0))
 
     emit:
-       ase_hetsnp = aselux_output_parse.out.ase_count_hetsnp_txt
-       ase_homsnp = aselux_output_parse.out.ase_count_homsnp_txt
-       ase_homref = aselux_output_parse.out.ase_count_homref_txt
+        ase_hetsnp = aselux_output_parse.out.ase_count_hetsnp_txt
+        ase_homsnp = aselux_output_parse.out.ase_count_homsnp_txt
+        ase_homref = aselux_output_parse.out.ase_count_homref_txt
 }
 

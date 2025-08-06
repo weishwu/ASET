@@ -12,9 +12,9 @@ process nmask_genome {
     script:
     """
     bedtools maskfasta \
-       -fi ${genome_fasta} \
-       -bed ${snps} \
-       -fo genome_Nmasked.${sample}.fa 
+        -fi ${genome_fasta} \
+        -bed ${snps} \
+        -fo genome_Nmasked.${sample}.fa 
     """ 
 }
 

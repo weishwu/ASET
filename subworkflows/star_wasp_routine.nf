@@ -9,9 +9,9 @@ workflow star_wasp_routine {
         trimmed_reads
     
     main:
-       star_genome_index(genome, gtf)
+        star_genome_index(genome, gtf)
 
-       star_wasp_aln(
+        star_wasp_aln(
           star_genome_index.out.star_genome.first(),
           trimmed_reads.join(samples.map { sample, read1, read2, snps, snps_with_ref -> [ sample, snps ] }, by: 0))
     

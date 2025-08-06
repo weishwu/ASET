@@ -13,19 +13,19 @@ process gsnap_aln {
     script:
     """
     gsnap \
-       --read-group-id ${sample} \
-       --read-group-name ${sample} \
-       -D ${genome_index} \
-       -d gmap_genome \
-       -s ${gtf_index} \
-       -v ${sample} \
-       -t ${task.cpus} \
-       --gunzip \
-       --format sam \
-       -o ${sample}.gsnap.sam \
-       ${params.tool_parameters.gsnap} \
-       ${trimmed_read1} \
-       ${trimmed_read2} \
+        --read-group-id ${sample} \
+        --read-group-name ${sample} \
+        -D ${genome_index} \
+        -d gmap_genome \
+        -s ${gtf_index} \
+        -v ${sample} \
+        -t ${task.cpus} \
+        --gunzip \
+        --format sam \
+        -o ${sample}.gsnap.sam \
+        ${params.tool_parameters.gsnap} \
+        ${trimmed_read1} \
+        ${trimmed_read2} \
     >gsnap_aln.${sample}.log 2>&1
     """ 
 }

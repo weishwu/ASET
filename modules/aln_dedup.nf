@@ -18,15 +18,15 @@ process aln_dedup {
     """
     export JAVA_OPTIONS="-Xmx${task.memory.toGiga()}g"
     gatk MarkDuplicates \
-       -I ${aln_hc_bam} \
-       -O ${sample}.aln.hc.dedup.bam \
-       --METRICS_FILE aln.hc_filt.dedup.${sample}.metrics.txt \
-       --VALIDATION_STRINGENCY SILENT \
-       --OPTICAL_DUPLICATE_PIXEL_DISTANCE 2500 \
-       --ASSUME_SORT_ORDER coordinate \
-       --CREATE_INDEX true \
-       --REMOVE_DUPLICATES true \
-       --TMP_DIR ./ \
+        -I ${aln_hc_bam} \
+        -O ${sample}.aln.hc.dedup.bam \
+        --METRICS_FILE aln.hc_filt.dedup.${sample}.metrics.txt \
+        --VALIDATION_STRINGENCY SILENT \
+        --OPTICAL_DUPLICATE_PIXEL_DISTANCE 2500 \
+        --ASSUME_SORT_ORDER coordinate \
+        --CREATE_INDEX true \
+        --REMOVE_DUPLICATES true \
+        --TMP_DIR ./ \
     2>&1 |tee > aln.hc_filt.dedup.${sample}.log
     """ 
 }

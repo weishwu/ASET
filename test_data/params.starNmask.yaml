@@ -1,13 +1,12 @@
 dirs:
    results_dir: test_data/reports_starNmask/results/
 
-
 support_files:
    genome_fa: test_data/refs/hg38.fa
    gtf: test_data/refs/gencode.v41.annotation.gtf
    rRNA_tRNA_bed: test_data/refs/rRNA_tRNA.bed
    adapters: test_data/refs/TruSeq3-PE-2.fa
-  
+
 # "phase_info" and "maternal_vcf" are optional
 data:
    routine: 'from_fastq'

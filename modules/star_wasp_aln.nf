@@ -16,18 +16,18 @@ process star_wasp_aln {
     script:
     """
     STAR \
-       --genomeDir ${star_genome} \
-       --runThreadN ${task.cpus} \
-       --readFilesIn ${trimmed_read1} ${trimmed_read2} \
-       --readFilesCommand zcat \
-       --outFileNamePrefix ${sample}. \
-       --outSAMattrRGline ID:${sample} SM:${sample} \
-       --varVCFfile <((zcat ${snps})) \
-       --outSAMtype BAM SortedByCoordinate \
-       --outSAMattributes NH HI NM MD AS nM jM jI XS vA vG vW \
-       --waspOutputMode SAMtag \
-       ${params.tool_parameters.star} \
-  2>&1|tee >star_aln.${sample}.log 2>&1
+        --genomeDir ${star_genome} \
+        --runThreadN ${task.cpus} \
+        --readFilesIn ${trimmed_read1} ${trimmed_read2} \
+        --readFilesCommand zcat \
+        --outFileNamePrefix ${sample}. \
+        --outSAMattrRGline ID:${sample} SM:${sample} \
+        --varVCFfile <((zcat ${snps})) \
+        --outSAMtype BAM SortedByCoordinate \
+        --outSAMattributes NH HI NM MD AS nM jM jI XS vA vG vW \
+        --waspOutputMode SAMtag \
+        ${params.tool_parameters.star} \
+    2>&1|tee >star_aln.${sample}.log 2>&1
     """ 
 }
 
