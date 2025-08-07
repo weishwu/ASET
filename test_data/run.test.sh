@@ -1,5 +1,4 @@
-export SINGULARITY_CACHEDIR=/nfs/mm-isilon/bioinfcore/ActiveProjects/weishwu/temp/
-export NXF_SINGULARITY_CACHEDIR=/nfs/mm-isilon/bioinfcore/ActiveProjects/weishwu/test/test_aset/sifs/
+export NXF_SINGULARITY_CACHEDIR=~/sifs/
 
 nextflow run main.nf \
 	-c config/test.config \
