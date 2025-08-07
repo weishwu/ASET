@@ -1,4 +1,0 @@
-10.1093/bioinformatics/btw354                      # MultiQC
-10.1093/bioinformatics/bts635                      # star
-10.1093/bioinformatics/btu170                      # trimmomatic
-

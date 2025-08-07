@@ -1,5 +1,0 @@
-chr	group	feature	start	end	score1	strand	score2	gene_id	transcript_id	gene_type	gene_name	transcript_type	transcript_name	exon_number	exon_id	level	transcript_support_level	hgnc_id	tag	havana_gene	havana_transcript
-chr20	HAVANA	gene	1	4000	.	+	.	ENSG00000178591.7	.	protein_coding	DEFB125	.	.	.	.	2	.	HGNC:18105	.	OTTHUMG00000031614.4	.
-chr20	HAVANA	transcript	1	4000	.	+	.	ENSG00000178591.7	ENST00000608838.1	protein_coding	DEFB125	processed_transcript	DEFB125-202	.	.	2	2	HGNC:18105	.	OTTHUMG00000031614.4	OTTHUMT00000473263.1
-chr20	HAVANA	exon	8	1000	.	+	.	ENSG00000178591.7	ENST00000608838.1	protein_coding	DEFB125	processed_transcript	DEFB125-202	1	ENSE00003702629.1	2	2	HGNC:18105	.	OTTHUMG00000031614.4	OTTHUMT00000473263.1
-chr20	HAVANA	exon	1500	3200	.	+	.	ENSG00000178591.7	ENST00000608838.1	protein_coding	DEFB125	processed_transcript	DEFB125-202	2	ENSE00003705060.1	2	2	HGNC:18105	.	OTTHUMG00000031614.4	OTTHUMT00000473263.1

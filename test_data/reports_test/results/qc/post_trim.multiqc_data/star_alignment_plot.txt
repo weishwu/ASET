@@ -1,3 +1,0 @@
-Sample	Uniquely mapped	Mapped to too many loci	Unmapped: too short	Unmapped: other
-123878	51.0	0.0	140.0	23615.0
-8174-CV-86	29.0	1.0	325.0	23546.0

@@ -12,7 +12,7 @@ process aln_ase_count {
 
     script:
     """
-    export JAVA_OPTIONS=-Xmx${task.memory.toGiga()}g
+    #export JAVA_OPTIONS=-Xmx${task.memory.toGiga()}g
     
     gunzip -c ${snps} | awk '{OFS="\\t"; if (\$1 ~ "^#") {print \$0} else {\$9="GT";\$10="0/1"; print \$0}}' > ${sample}.pseudoHet.vcf
     gatk SortVcf -I ${sample}.pseudoHet.vcf -O ${sample}.pseudoHet.vcf.gz --CREATE_INDEX true
@@ -20,6 +20,7 @@ process aln_ase_count {
     for strand in sense antisense
     do 
     gatk ASEReadCounter ${params.tool_parameters.asereadcounter_flags} \
+        --java-options "-Xmx${task.memory.toGiga()}g" \
         -R ${genome_fa} \
         -I ${sample}.aln.hc.dedup.\${strand}.bam \
         -V ${sample}.pseudoHet.vcf.gz \

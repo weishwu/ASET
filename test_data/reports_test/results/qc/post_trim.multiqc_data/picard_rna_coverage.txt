@@ -1,2 +1,0 @@
-123878.coord_sorted.hc
-8174-CV-86.coord_sorted.hc

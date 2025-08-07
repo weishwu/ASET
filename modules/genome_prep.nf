@@ -28,6 +28,7 @@ process genome_dict {
     script:
     """
     gatk CreateSequenceDictionary \
+        --java-options "-Xmx${task.memory.toGiga()}g" \
         -R ${genome_fa} \
         -O genome.dict
     """

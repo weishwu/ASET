@@ -1,5 +1,0 @@
-Sample	Unique Reads	Duplicate Reads
-Sample_123878_R1	19531.0	5469.0
-Sample_123878_R2	20842.0	4158.0
-Sample_8174-CV-86_R1	20784.0	4216.0
-Sample_8174-CV-86_R2	21513.0	3487.0

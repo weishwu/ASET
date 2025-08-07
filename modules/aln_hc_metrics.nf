@@ -14,8 +14,9 @@ process aln_hc_metrics {
 
     script:
     """
-    export JAVA_OPTIONS=-Xmx${task.memory.toGiga()}g
+    #export JAVA_OPTIONS=-Xmx${task.memory.toGiga()}g
     gatk CollectRnaSeqMetrics \
+        --java-options "-Xmx${task.memory.toGiga()}g" \
         --REF_FLAT ${gtf_refflat} \
         --RIBOSOMAL_INTERVALS ${rRNA_tRNA_list} \
         --STRAND_SPECIFICITY ${params.data.rna_strandedness} \

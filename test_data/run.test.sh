@@ -3,7 +3,7 @@ export NXF_SINGULARITY_CACHEDIR=/nfs/mm-isilon/bioinfcore/ActiveProjects/weishwu
 
 nextflow run main.nf \
 	-c config/test.config \
-        -profile singularity,gl \
+        -profile singularity,cluster \
         -params-file test_data/params.test.yaml \
 	-resume \
         -with-dag test_data/reports_test/run_report/dag.png \

@@ -1,3 +1,0 @@
-Sample	Intergenic	PF not aligned
-123878.coord_sorted.hc	14361.0	167.0
-8174-CV-86.coord_sorted.hc	8187.0	79.0

@@ -16,8 +16,9 @@ process aln_dedup {
 
     script:
     """
-    export JAVA_OPTIONS="-Xmx${task.memory.toGiga()}g"
+    #export JAVA_OPTIONS="-Xmx${task.memory.toGiga()}g"
     gatk MarkDuplicates \
+        --java-options "-Xmx${task.memory.toGiga()}g" \
         -I ${aln_hc_bam} \
         -O ${sample}.aln.hc.dedup.bam \
         --METRICS_FILE aln.hc_filt.dedup.${sample}.metrics.txt \

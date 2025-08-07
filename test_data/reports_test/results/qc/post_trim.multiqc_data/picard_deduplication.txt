@@ -1,3 +1,0 @@
-Sample	Unique Pairs	Duplicate Pairs Optical	Duplicate Pairs Nonoptical
-123878.coord_sorted.hc	94.0	2.0	2.0
-8174-CV-86.coord_sorted.hc	56.0	2.0	0.0

@@ -1,5 +1,0 @@
-Module	Section	Sample Name	Source
-FastQC	all_sections	Sample_8174-CV-86_R1	/nfs/mm-isilon/bioinfcore/ActiveProjects/weishwu/test/test_aset/ASET/work/9b/9a89621d52e24bd954e5db9dc5bb17/pre_trim/Sample_8174-CV-86_R1_fastqc.zip
-FastQC	all_sections	Sample_123878_R1	/nfs/mm-isilon/bioinfcore/ActiveProjects/weishwu/test/test_aset/ASET/work/9b/9a89621d52e24bd954e5db9dc5bb17/pre_trim/Sample_123878_R1_fastqc.zip
-FastQC	all_sections	Sample_8174-CV-86_R2	/nfs/mm-isilon/bioinfcore/ActiveProjects/weishwu/test/test_aset/ASET/work/9b/9a89621d52e24bd954e5db9dc5bb17/pre_trim/Sample_8174-CV-86_R2_fastqc.zip
-FastQC	all_sections	Sample_123878_R2	/nfs/mm-isilon/bioinfcore/ActiveProjects/weishwu/test/test_aset/ASET/work/9b/9a89621d52e24bd954e5db9dc5bb17/pre_trim/Sample_123878_R2_fastqc.zip

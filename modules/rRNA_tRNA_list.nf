@@ -11,8 +11,9 @@ process rRNA_tRNA_list {
 
     script:
     """
-    export JAVA_OPTIONS=-Xmx${task.memory.toGiga()}g
+    #export JAVA_OPTIONS=-Xmx${task.memory.toGiga()}g
     gatk BedToIntervalList \
+        --java-options "-Xmx${task.memory.toGiga()}g" \
         -I ${bed} \
         -SD ${genome_dict} \
         -O rRNA_tRNA_list.interval_list
