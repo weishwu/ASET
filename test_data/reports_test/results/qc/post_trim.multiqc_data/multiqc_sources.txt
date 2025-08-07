@@ -1,0 +1,13 @@
+Module	Section	Sample Name	Source
+Picard	DuplicationMetrics	8174-CV-86.coord_sorted.hc	/nfs/mm-isilon/bioinfcore/ActiveProjects/weishwu/test/test_aset/ASET/work/9b/9a89621d52e24bd954e5db9dc5bb17/aln.hc_filt.dedup.8174-CV-86.metrics.txt
+Picard	DuplicationMetrics	123878.coord_sorted.hc	/nfs/mm-isilon/bioinfcore/ActiveProjects/weishwu/test/test_aset/ASET/work/9b/9a89621d52e24bd954e5db9dc5bb17/aln.hc_filt.dedup.123878.metrics.txt
+Picard	RnaSeqMetrics	123878.coord_sorted.hc	/nfs/mm-isilon/bioinfcore/ActiveProjects/weishwu/test/test_aset/ASET/work/9b/9a89621d52e24bd954e5db9dc5bb17/123878.hc.bam.RNAseqMetrics.txt
+Picard	RnaSeqMetrics	8174-CV-86.coord_sorted.hc	/nfs/mm-isilon/bioinfcore/ActiveProjects/weishwu/test/test_aset/ASET/work/9b/9a89621d52e24bd954e5db9dc5bb17/8174-CV-86.hc.bam.RNAseqMetrics.txt
+STAR	SummaryLog	123878	/nfs/mm-isilon/bioinfcore/ActiveProjects/weishwu/test/test_aset/ASET/work/9b/9a89621d52e24bd954e5db9dc5bb17/123878.Log.final.out
+STAR	SummaryLog	8174-CV-86	/nfs/mm-isilon/bioinfcore/ActiveProjects/weishwu/test/test_aset/ASET/work/9b/9a89621d52e24bd954e5db9dc5bb17/8174-CV-86.Log.final.out
+Trimmomatic	all_sections	Sample_123878_trimmomatic	/nfs/mm-isilon/bioinfcore/ActiveProjects/weishwu/test/test_aset/ASET/work/9b/9a89621d52e24bd954e5db9dc5bb17/Sample_123878_trimmomatic.log
+Trimmomatic	all_sections	Sample_8174-CV-86_trimmomatic	/nfs/mm-isilon/bioinfcore/ActiveProjects/weishwu/test/test_aset/ASET/work/9b/9a89621d52e24bd954e5db9dc5bb17/Sample_8174-CV-86_trimmomatic.log
+FastQC	all_sections	Sample_123878_R1	/nfs/mm-isilon/bioinfcore/ActiveProjects/weishwu/test/test_aset/ASET/work/9b/9a89621d52e24bd954e5db9dc5bb17/Sample_123878_R1_trimmed_fastqc.zip
+FastQC	all_sections	Sample_123878_R2	/nfs/mm-isilon/bioinfcore/ActiveProjects/weishwu/test/test_aset/ASET/work/9b/9a89621d52e24bd954e5db9dc5bb17/Sample_123878_R2_trimmed_fastqc.zip
+FastQC	all_sections	Sample_8174-CV-86_R2	/nfs/mm-isilon/bioinfcore/ActiveProjects/weishwu/test/test_aset/ASET/work/9b/9a89621d52e24bd954e5db9dc5bb17/Sample_8174-CV-86_R2_trimmed_fastqc.zip
+FastQC	all_sections	Sample_8174-CV-86_R1	/nfs/mm-isilon/bioinfcore/ActiveProjects/weishwu/test/test_aset/ASET/work/9b/9a89621d52e24bd954e5db9dc5bb17/Sample_8174-CV-86_R1_trimmed_fastqc.zip

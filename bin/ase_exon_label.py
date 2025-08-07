@@ -2,6 +2,7 @@
 
 import pandas as pd
 import sys
+import os
 
 hetsnp_ase = sys.argv[1]
 ase_x_exons = sys.argv[2]
@@ -9,8 +10,16 @@ ase_x_genes = sys.argv[3]
 ase_exon_label = sys.argv[4]
 
 ase=pd.read_csv(hetsnp_ase,sep='\t',low_memory=False,compression='gzip')
-exon_all=pd.read_csv(ase_x_exons,header=None,sep='\t',low_memory=False)
-genes=pd.read_csv(ase_x_genes,header=None,sep='\t',low_memory=False)
+
+if os.path.getsize(ase_x_exons) == 0:
+   exon_all=pd.DataFrame(['.',1,'plus','.']).T
+else:
+   exon_all=pd.read_csv(ase_x_exons,header=None,sep='\t',low_memory=False)
+
+if os.path.getsize(ase_x_genes) == 0:
+   genes=pd.DataFrame(['.',1,'plus','.']).T
+else:
+   genes=pd.read_csv(ase_x_genes,header=None,sep='\t',low_memory=False)
 
 # all exons
 exon_all.columns=['contig','position','strand','exons_merged']

@@ -1,0 +1,4 @@
+contig	position	variantID	refAllele	altAllele	refCount	altCount	totalCount	lowMAPQDepth	lowBaseQDepth	rawDepth	otherBases	improperPairs	strand	RNAid
+chr20	25139	chr20_31566434	G	C	0	1	1	0	0	1	0	0	plus	123878
+chr20	27928	chr20_31569223	A	G	0	5	5	0	0	5	0	0	plus	123878
+chr20	27928	chr20_31569223	A	G	0	2	2	0	0	2	0	0	plus	8174-CV-86

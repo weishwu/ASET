@@ -1,13 +1,12 @@
 dirs:
    results_dir: test_data/reports_test/results/
 
-
 support_files:
    genome_fa: test_data/refs/chr20.fa
    gtf: test_data/refs/gencode.v41.annotation.chr20.gtf
    rRNA_tRNA_bed: test_data/refs/rRNA_tRNA.chr20.bed
    adapters: test_data/refs/TruSeq3-PE-2.fa
-  
+
 # "phase_info" and "maternal_vcf" are optional
 data:
    routine: 'from_fastq'
@@ -19,7 +18,7 @@ data:
    maternal_vcf: test_data/maternal_vcf.csv
 
 tool_parameters:
-   mapper: 'ASElux'
+   mapper: 'STAR_WASP'
    trimmomatic:
       phred_version: 'phred33'
       ILLUMINACLIP: '2:30:10:8:true'
@@ -43,6 +42,7 @@ tool_parameters:
    aln_filter_flags: '-f 2 -F 512 -q20'
    asereadcounter_flags: >-
          -min-depth 1
-         --min-mapping-quality 20
+         --min-mapping-quality 255
          --min-base-quality 20
          --count-overlap-reads-handling COUNT_FRAGMENTS_REQUIRE_SAME_BASE
+

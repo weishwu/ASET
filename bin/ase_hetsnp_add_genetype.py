@@ -12,22 +12,27 @@ gd=d[['contig','position','strand','RNAid','exons_merged']].copy()
 
 g=gd.loc[pd.isnull(gd['exons_merged'])==False]
 
-k=pd.DataFrame(g['exons_merged'].str.split(';').apply(pd.Series,1).stack())
-k.index=k.index.droplevel(-1)
-k.columns=["exons_merged_split"]
-gx=g.merge(k,left_index=True,right_index=True).reset_index().drop(['index'],axis=1)
-gx['gene_id']=gx['exons_merged_split'].str.split(':',expand=True)[4]
+if len(g) == 0:
+   gxtm = pd.DataFrame(['.',1,'plus','.','.']).T.set_axis(['contig_x','position','strand_x','RNAid','exons_merged_split_genetype'],axis=1)
+else:
+   k=pd.DataFrame(g['exons_merged'].str.split(';').apply(pd.Series,1).stack())
+   k.index=k.index.droplevel(-1)
+   k.columns=["exons_merged_split"]
+   gx=g.merge(k,left_index=True,right_index=True).reset_index().drop(['index'],axis=1)
+   gx['gene_id']=gx['exons_merged_split'].str.split(':',expand=True)[4]
 
-t=pd.read_csv(genes_bed_fn,sep='\t',low_memory=False,header=None)
-t.columns=['contig','start','end','gene_id_name','score','strand','gene_type','gene_id','gene_name']
+   t=pd.read_csv(genes_bed_fn,sep='\t',low_memory=False,header=None)
+   t.columns=['contig','start','end','gene_id_name','score','strand','gene_type','gene_id','gene_name']
 
-gxt=gx.merge(t,on='gene_id')
-gxt['exons_merged_split_genetype']=gxt['exons_merged_split'].astype(str) + ':' + gxt['gene_type'].astype(str)
+   gxt=gx.merge(t,on='gene_id')
+   if len(gxt) == 0:
+      gxtm = pd.DataFrame(['.',1,'plus','.','.']).T.set_axis(['contig_x','position','strand_x','RNAid','exons_merged_split_genetype'],axis=1)
+   else:
+      gxt['exons_merged_split_genetype']=gxt['exons_merged_split'].astype(str) + ':' + gxt['gene_type'].astype(str)
+      gxtm=gxt.groupby(['contig_x','position','strand_x','RNAid'])['exons_merged_split_genetype'].apply(';'.join)
+      #gxtm=gxt.groupby(['contig_x','position','strand_x','RNAid'])['gene_type'].apply(':'.join)
 
-gxtm=gxt.groupby(['contig_x','position','strand_x','RNAid'])['exons_merged_split_genetype'].apply(';'.join)
-#gxtm=gxt.groupby(['contig_x','position','strand_x','RNAid'])['gene_type'].apply(':'.join)
-
-dm0=d.drop(['exons_merged'],axis=1).merge(gxtm.reset_index().rename(columns={'contig_x':'contig','strand_x':'strand','exons_merged_split_genetype':'exons_merged'}),on=['contig','position','strand','RNAid'],how='outer')
+dm0=d.drop(['exons_merged'],axis=1).merge(gxtm.reset_index().rename(columns={'contig_x':'contig','strand_x':'strand','exons_merged_split_genetype':'exons_merged'}),on=['contig','position','strand','RNAid'],how='left')
 
 dm1=dm0.loc[pd.isnull(dm0['exons_merged']),].copy()
 dm=dm0.loc[pd.isnull(dm0['exons_merged'])==False,].copy()

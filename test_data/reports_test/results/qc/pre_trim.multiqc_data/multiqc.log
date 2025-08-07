@@ -1,0 +1,2 @@
+[2025-08-07 15:59:46,210] multiqc.core.file_search                           [INFO   ]  Search path: /nfs/mm-isilon/bioinfcore/ActiveProjects/weishwu/test/test_aset/ASET/work/9b/9a89621d52e24bd954e5db9dc5bb17/pre_trim
+[2025-08-07 15:59:46,415] multiqc.modules.fastqc.fastqc                      [INFO   ]  Found 4 reports

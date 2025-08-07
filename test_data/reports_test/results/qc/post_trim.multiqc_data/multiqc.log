@@ -1,0 +1,6 @@
+[2025-08-07 15:59:51,104] multiqc.core.file_search                           [INFO   ]  Search path: /nfs/mm-isilon/bioinfcore/ActiveProjects/weishwu/test/test_aset/ASET/work/9b/9a89621d52e24bd954e5db9dc5bb17
+[2025-08-07 15:59:51,474] multiqc.modules.picard.picard                      [INFO   ]  Found 2 MarkDuplicates reports
+[2025-08-07 15:59:51,483] multiqc.modules.picard.picard                      [INFO   ]  Found 2 RnaSeqMetrics reports
+[2025-08-07 15:59:51,492] multiqc.modules.star.star                          [INFO   ]  Found 2 reports
+[2025-08-07 15:59:51,510] multiqc.modules.trimmomatic.trimmomatic            [INFO   ]  Found 2 logs
+[2025-08-07 15:59:51,530] multiqc.modules.fastqc.fastqc                      [INFO   ]  Found 4 reports

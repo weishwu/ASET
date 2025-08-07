@@ -1,7 +1,6 @@
 dirs:
    results_dir: test_data/reports_aselux/results/
 
-
 support_files:
    genome_fa: test_data/refs/hg38.fa
    gtf: test_data/refs/gencode.v41.annotation.gtf

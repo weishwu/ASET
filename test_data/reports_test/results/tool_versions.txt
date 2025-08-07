@@ -1,0 +1,9 @@
+bedtools	v2.27.1
+FastQC	v0.12.1
+GATK	v4.6.1.0
+MultiQC	1.28
+Python	3.12.7
+pandas	2.2.3
+R	4.5.0
+STAR	2.7.11b
+Trimmomatic	0.39

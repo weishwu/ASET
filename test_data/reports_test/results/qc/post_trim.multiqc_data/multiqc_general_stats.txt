@@ -1,0 +1,11 @@
+Sample	picard_mark_duplicates-PERCENT_DUPLICATION	picard_rnaseqmetrics-PCT_RIBOSOMAL_BASES	picard_rnaseqmetrics-PCT_MRNA_BASES	star-total_reads	star-mapped	star-mapped_percent	star-uniquely_mapped	star-uniquely_mapped_percent	star-multimapped	trimmomatic-dropped_pct	fastqc-percent_duplicates	fastqc-percent_gc	fastqc-avg_sequence_length	fastqc-median_sequence_length	fastqc-percent_fails	fastqc-total_sequences
+123878				0.023805999999999997	5.1e-05	0.21	5.1e-05	0.21	0.0							
+123878.coord_sorted.hc	4.0816	0.0	0.0													
+8174-CV-86				0.023901	2.9e-05	0.12	2.9e-05	0.12	0.0							
+8174-CV-86.coord_sorted.hc	3.4483	0.0	0.0													
+Sample_123878										0.61						
+Sample_123878_R1											21.46517684617322	46.0	146.42472485927917	151	9.090909090909092	0.023805999999999997
+Sample_123878_R2											16.609258170209202	47.0	145.88704528270185	151	0.0	0.023805999999999997
+Sample_8174-CV-86										0.56						
+Sample_8174-CV-86_R1											16.626919375758334	46.0	140.6416467930212	151	9.090909090909092	0.023901
+Sample_8174-CV-86_R2											13.815321534663823	47.0	141.22764737877077	151	0.0	0.023901

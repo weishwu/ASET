@@ -1,0 +1,3 @@
+Sample	Total reads	Aligned	Uniq aligned	Multimapped	Avg. read len	Avg. mapped len	Splices	Annotated splices	GT/AG splices	GC/AG splices	AT/AC splices	Non-canonical splices	Mismatch rate	Del rate	Del len	Ins rate	Ins len
+123878	0.023805999999999997	0.21	0.21	0.0	292.0	291.35	5.4999999999999995e-05	0.0	5.4999999999999995e-05	0.0	0.0	0.0	0.28	0.01	1.0	0.0	0.0
+8174-CV-86	0.023901	0.12	0.12	0.0	281.0	282.31	5.2e-05	0.0	5.2e-05	0.0	0.0	0.0	0.17	0.0	0.0	0.0	0.0

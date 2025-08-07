@@ -2,45 +2,6 @@
 
 nextflow.enable.dsl = 2
 
-if (params.data.routine == 'from_fastq') {
-
- Channel
-    .fromPath(params.data.sample_sheet, checkIfExists:true)
-    .splitCsv(header: true)
-    .map { row -> 
-           def sample = row.sample
-           def read1 = row.read1
-           def read2 = row.read2
-           def snps = row.snps
-           def snps_with_ref = row.snps_with_ref ?: row.snps
-           tuple(sample, file(read1), file(read2), file(snps), file(snps_with_ref))}
-    .set { samples_ch }
-
- snps_ch = samples_ch.map { sample, read1, read2, snps, snps_with_ref -> [sample, snps_with_ref] }
-
-} else if (params.data.routine == 'from_bam') {
-
- Channel
-    .fromPath(params.data.sample_sheet, checkIfExists:true)
-    .splitCsv(header: true)
-    .map { row -> 
-           def sample = row.sample
-           def bam = row.bam
-           def snps = row.snps
-           def snps_with_ref = row.snps_with_ref ?: row.snps
-           tuple(sample, file(bam), file(snps), file(snps_with_ref))}
-    .set { samples_ch }
- 
- snps_ch = samples_ch.map { sample, bam, snps, snps_with_ref -> [sample, snps_with_ref] }
-}
-
-genome_fa_ch = Channel.fromPath(params.support_files.genome_fa, checkIfExists:true)
-gtf_ch = Channel.fromPath(params.support_files.gtf, checkIfExists:true)
-
-if ((params.data.routine != 'from_bam') || (params.tool_parameters.mapper != 'ASElux')) {
-rRNA_tRNA_ch = Channel.fromPath(params.support_files.rRNA_tRNA_bed, checkIfExists:true)
-}
-
 include { genome_link } from './modules/genome_prep.nf'
 include { genome_dict } from './modules/genome_prep.nf'
 include { rRNA_tRNA_list } from './modules/rRNA_tRNA_list.nf'
@@ -95,6 +56,45 @@ include { aselux_routine } from './subworkflows/aselux_routine.nf'
 
 
 workflow {
+
+if (params.data.routine == 'from_fastq') {
+
+    Channel
+       .fromPath(params.data.sample_sheet, checkIfExists:true)
+       .splitCsv(header: true)
+       .map { row -> 
+           def sample = row.sample
+           def read1 = row.read1
+           def read2 = row.read2
+           def snps = row.snps
+           def snps_with_ref = row.snps_with_ref ?: row.snps
+           tuple(sample, file(read1), file(read2), file(snps), file(snps_with_ref))}
+       .set { samples_ch }
+
+    snps_ch = samples_ch.map { sample, read1, read2, snps, snps_with_ref -> [sample, snps_with_ref] }
+
+} else if (params.data.routine == 'from_bam') {
+
+    Channel
+       .fromPath(params.data.sample_sheet, checkIfExists:true)
+       .splitCsv(header: true)
+       .map { row -> 
+           def sample = row.sample
+           def bam = row.bam
+           def snps = row.snps
+           def snps_with_ref = row.snps_with_ref ?: row.snps
+           tuple(sample, file(bam), file(snps), file(snps_with_ref))}
+       .set { samples_ch }
+ 
+    snps_ch = samples_ch.map { sample, bam, snps, snps_with_ref -> [sample, snps_with_ref] }
+}
+
+genome_fa_ch = Channel.fromPath(params.support_files.genome_fa, checkIfExists:true)
+gtf_ch = Channel.fromPath(params.support_files.gtf, checkIfExists:true)
+
+if ((params.data.routine != 'from_bam') || (params.tool_parameters.mapper != 'ASElux')) {
+rRNA_tRNA_ch = Channel.fromPath(params.support_files.rRNA_tRNA_bed, checkIfExists:true)
+}
 
     genome_fa_ch | genome_link | genome_dict
     gtf_ch | gtf_to_df | extract_exons_genes  
