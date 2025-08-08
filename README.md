@@ -20,10 +20,10 @@ This nextflow pipeline processes Illumina RNA-Seq reads and generates a data fra
 ## Flow charts
 - Overview
 ![](./test_data/ASEprep.drawio.png)
-- [DAG if using `STAR_WASP`](./test_data/reports_starWasp/run_report/dag.png)
-- [DAG if using `STAR_NMASK`](./test_data/reports_starNmask/run_report/dag.png)
-- [DAG if using `GSNAP`](./test_data/reports_gsnap/run_report/dag.png)
-- [DAG if using `ASElux`](./test_data/reports_aselux/run_report/dag.png)
+- [DAG if using `STAR_WASP`](./test_data/dag.STAR_WASP.png)
+- [DAG if using `STAR_NMASK`](./test_data/dag.STAR_NMASK.png)
+- [DAG if using `GSNAP`](./test_data/dag.GSNAP.png)
+- [DAG if using `ASElux`](./test_data/dag.ASElux.png)
 
 ## Inputs and parameters:
 - A sample sheet:
@@ -107,7 +107,7 @@ git clone https://github.com/weishwu/ASET.git
 ```
 export NXF_SINGULARITY_CACHEDIR=~/sifs/
 nextflow run main.nf \
-	      -c config/test.config \
+	 -c config/test.config \
          -profile singularity,cluster \
          -params-file test_data/params.test.yaml \
          -with-trace test_data/reports_test/run_report/trace.txt \
@@ -120,7 +120,7 @@ nextflow run main.nf \
 ```
 export NXF_SINGULARITY_CACHEDIR=~/sifs/
 nextflow run main.nf \
-	      -c config/analysis.config \
+	 -c config/analysis.config \
          -profile singularity,cluster \
          -params-file test_data/params.starWasp.yaml \
          -with-trace test_data/reports_starWasp/run_report/trace.txt \
