@@ -100,6 +100,7 @@ This nextflow pipeline processes Illumina RNA-Seq reads and generates a data fra
 - Download ASET:
 ```
 git clone https://github.com/weishwu/ASET.git
+cd ASET
 ```
 - Make sure your environment has nextflow, either singularity or docker, and sufficient computing resource. Nextflow can be installed via conda: https://anaconda.org/bioconda/nextflow
 - Edit `config/env.config` to match your computing environment.
