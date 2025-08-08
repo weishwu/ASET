@@ -90,7 +90,7 @@ This nextflow pipeline processes Illumina RNA-Seq reads and generates a data fra
 ## Configuration
 - ASET comes with four configuration files under the config directory:
   - `env.config`: contains configuration for cluster environment and docker/singularity. Add your own profile according to your environment, or you can simply edit the `cluster` profile if using an HPC cluster.
-  - `containers.config`: contains the paths to containers used for running ASET. Normally, initiating ASET will trigger automatic pulling of these containers. Sometimes nextflow can raise errors in pulling. If this happens, please refer to [this documentation](https://bioinfo-guidelines.readthedocs.io/en/latest/nextflow/trubleshooting.html#failed-to-pull-singularity-image) for solutions. 
+  - `containers.config`: contains the paths to containers used for running ASET. Normally, initiating ASET will trigger automatic pulling of these containers. Sometimes nextflow can raise errors in pulling. If this happens, refer to [this documentation](https://bioinfo-guidelines.readthedocs.io/en/latest/nextflow/trubleshooting.html#failed-to-pull-singularity-image) for solutions. 
   - `analysis.config`: contains the CPU and memory settings when analyzing real data. Adjust these settings according to your own data. The default settings should work properly for medium-size human RNA-Seq data.
   - `test.config`: contains the resource settings to run a light test run. This test uses 2 CPUs and 2GB memory by default.
 - See more details about nextflow configuration at: https://www.nextflow.io/docs/latest/config.html
