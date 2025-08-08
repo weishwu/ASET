@@ -108,7 +108,7 @@ git clone https://github.com/weishwu/ASET.git
 export NXF_SINGULARITY_CACHEDIR=~/sifs/
 nextflow run main.nf \
          -c config/test.config \
-          -profile singularity,cluster \
+         -profile singularity,cluster \
          -params-file test_data/params.test.yaml \
          -with-trace test_data/reports_test/run_report/trace.txt \
          -with-report test_data/reports_test/run_report/report.html \
