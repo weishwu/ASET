@@ -116,7 +116,7 @@ nextflow run main.nf \
 ```
 - This test run will pull containers and save to singularity image files under `~/sifs/`. You can change this to another path.
 - The test run should finish in about 12 minutes. The output will be in `test_data/reports_test/`.
-- To analyze real data, prepare your own sample sheet and params.yaml file, adjust resource settings in `config/analysis.config` if needed, and intiate the run with it:
+- To analyze real data, prepare your own sample sheet and params.yaml file, adjust resource settings in `config/analysis.config` if needed, and intiate the run with it. Below is an example run:
 ```
 export NXF_SINGULARITY_CACHEDIR=~/sifs/
 nextflow run main.nf \
