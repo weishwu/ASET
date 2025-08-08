@@ -95,7 +95,7 @@ This nextflow pipeline processes Illumina RNA-Seq reads and generates a data fra
   - `test.config`: contains the resource settings to run a light test run. This test uses 2 CPUs and 2GB memory by default.
 - See more details about nextflow configuration at: https://www.nextflow.io/docs/latest/config.html
 
-## Execution instructions
+## Execution instruction
 
 - Download ASET:
 ```
