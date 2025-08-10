@@ -90,7 +90,7 @@ This nextflow pipeline processes Illumina RNA-Seq reads and generates a data fra
 ## Configuration
 - ASET comes with four configuration files under the config directory:
   - `env.config`: contains configuration for cluster environment and docker/singularity. Add your own profile according to your environment, or you can simply edit the `cluster` profile if using an HPC cluster.
-  - `containers.config`: contains the paths to containers used for running ASET. Normally, initiating ASET will trigger automatic pulling of these containers. Sometimes nextflow can raise errors in pulling. If this happens, refer to [this documentation](https://bioinfo-guidelines.readthedocs.io/en/latest/nextflow/trubleshooting.html#failed-to-pull-singularity-image) for solutions. 
+  - `containers.config`: contains the paths to containers used for running ASET. Normally, initiating ASET will trigger automatic pulling of these containers. Sometimes nextflow can raise errors in pulling. If this happens, try cleaning the singularity cache first by `singularity cache clean -f`, or refer to [this documentation](https://bioinfo-guidelines.readthedocs.io/en/latest/nextflow/trubleshooting.html#failed-to-pull-singularity-image) for more solutions. 
   - `analysis.config`: contains the CPU and memory settings when analyzing real data. Adjust these settings according to your own data. The default settings should work properly for medium-size human RNA-Seq data.
   - `test.config`: contains the resource settings to run a light test run. This test uses 2 CPUs and 2GB memory by default.
 - See more details about nextflow configuration at: https://www.nextflow.io/docs/latest/config.html
@@ -115,8 +115,8 @@ nextflow run main.nf \
          -with-report test_data/reports_test/run_report/report.html \
          -with-timeline test_data/reports_test/run_report/timeline.html \
 ```
-- This test run will pull containers and save to singularity image files under `~/sifs/`. You can change this to a different path.
-- The test run should finish in about 12 minutes. The output will be in `test_data/reports_test/`.
+- This test run will pull containers and save to singularity image files under `~/sifs/`. You can change this to a different path. Pulling may take a while. If pulling fails, try cleaning the singularity cache by `singularity cache clean -f`.
+- The test run should finish between 10-20 minutes. The output will be in `test_data/reports_test/`.
 - To analyze real data, prepare your own sample sheet and params.yaml file, adjust resource settings in `config/analysis.config` if needed, and intiate the run with it. If you have executed the test run and use the same `NXF_SINGULARITY_CACHEDIR`, nextflow will not pull the containers again. Below is an example run:
 ```
 export NXF_SINGULARITY_CACHEDIR=~/sifs/
