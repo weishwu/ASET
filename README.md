@@ -129,3 +129,5 @@ nextflow run main.nf \
          -with-timeline test_data/reports_starWasp/run_report/timeline.html \
 ```
 
+## Citation
+- Manuscript under peer review: https://doi.org/10.21203/rs.3.rs-6844336/v1
