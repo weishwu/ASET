@@ -117,7 +117,7 @@ nextflow run main.nf \
          -with-report test_data/reports_test/run_report/report.html \
          -with-timeline test_data/reports_test/run_report/timeline.html \
 ```
-- This test run will pull containers and save to singularity image files under `~/sifs/`. You can change this to a different path. Pulling may take a while. If pulling fails, try cleaning the singularity cache by `singularity cache clean -f`. Specifying the `TMPDIR` directory can avoid saturating the default /tmp folder.
+- This test run will pull containers and save to singularity image files under `~/sifs/`. You can change this to a different path. Pulling may take a while. If pulling fails, try cleaning the singularity cache by `singularity cache clean -f`. Specifying the `TMPDIR` directory can avoid saturating the default `/tmp` folder.
 - The test run should finish between 10-20 minutes. The output will be in `test_data/reports_test/`.
 - To analyze real data, prepare your own sample sheet and params.yaml file, adjust resource settings in `config/analysis.config` if needed, and intiate the run with it. If you have executed the test run and use the same `NXF_SINGULARITY_CACHEDIR`, nextflow will not pull the containers again. Below is an example run:
 ```
