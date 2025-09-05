@@ -109,9 +109,17 @@ cd ASET
 export NXF_SINGULARITY_CACHEDIR=~/sifs/
 export TMPDIR=~/tmp/
 
+# to use singularity in a cluster environment
 nextflow run main.nf \
-         -c config/test.config \
-         -profile singularity,cluster \
+         -profile test,singularity,cluster \
+         -params-file test_data/params.test.yaml \
+         -with-trace test_data/reports_test/run_report/trace.txt \
+         -with-report test_data/reports_test/run_report/report.html \
+         -with-timeline test_data/reports_test/run_report/timeline.html \
+
+# alternatively, to use docker locally
+nextflow run main.nf \
+         -profile test,docker \
          -params-file test_data/params.test.yaml \
          -with-trace test_data/reports_test/run_report/trace.txt \
          -with-report test_data/reports_test/run_report/report.html \
@@ -119,14 +127,13 @@ nextflow run main.nf \
 ```
 - This test run will pull containers and save to singularity image files under `~/sifs/`. You can change this to a different path. Pulling may take a while. If pulling fails, try cleaning the singularity cache by `singularity cache clean -f`. Specifying the `TMPDIR` directory can avoid saturating the default `/tmp` folder. Make sure `NXF_SINGULARITY_CACHEDIR` and `TMPDIR` have plenty space.
 - The test run should finish between 10-20 minutes. The output will be in `test_data/reports_test/`.
-- To analyze real data, prepare your own sample sheet and params.yaml file, adjust resource settings in `config/analysis.config` if needed, and intiate the run with it. If you have executed the test run and use the same `NXF_SINGULARITY_CACHEDIR`, nextflow will not pull the containers again. Below is an example run:
+- To analyze real data, prepare your own sample sheet and params.yaml file, adjust resource settings in the `analysis` profile in `nextflow.config` if needed, and intiate the run with this profile. If you have executed the test run and use the same `NXF_SINGULARITY_CACHEDIR`, nextflow will not pull the containers again. Below is an example run:
 ```
 export NXF_SINGULARITY_CACHEDIR=~/sifs/
 export TMPDIR=~/tmp/
 
 nextflow run main.nf \
-         -c config/analysis.config \
-         -profile singularity,cluster \
+         -profile analysis,singularity,cluster \
          -params-file test_data/params.starWasp.yaml \
          -with-trace test_data/reports_starWasp/run_report/trace.txt \
          -with-report test_data/reports_starWasp/run_report/report.html \

@@ -92,7 +92,7 @@ if (params.data.routine == 'from_fastq') {
 genome_fa_ch = Channel.fromPath(params.support_files.genome_fa, checkIfExists:true)
 gtf_ch = Channel.fromPath(params.support_files.gtf, checkIfExists:true)
 
-if ((params.data.routine != 'from_bam') || (params.tool_parameters.mapper != 'ASElux')) {
+if ((params.data.routine != 'from_bam') && (params.tool_parameters.mapper != 'ASElux')) {
 rRNA_tRNA_ch = Channel.fromPath(params.support_files.rRNA_tRNA_bed, checkIfExists:true)
 }
 
