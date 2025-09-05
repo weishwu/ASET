@@ -105,7 +105,6 @@ cd ASET
 - Edit `config/env.config` to match your computing environment.
 - A test run can be initiated by:
 ```
-export NXF_SINGULARITY_CACHEDIR=~/sifs/
 export TMPDIR=~/tmp/
 
 # to run with docker locally
@@ -117,6 +116,7 @@ nextflow run main.nf \
          -with-timeline test_data/reports_test/run_report/timeline.html \
 
 # alternatively, to run with singularity in a cluster environment
+export NXF_SINGULARITY_CACHEDIR=~/sifs/
 nextflow run main.nf \
          -profile test,singularity,cluster \
          -params-file test_data/params.test.yaml \
