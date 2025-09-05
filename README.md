@@ -108,17 +108,17 @@ cd ASET
 export NXF_SINGULARITY_CACHEDIR=~/sifs/
 export TMPDIR=~/tmp/
 
-# to use singularity in a cluster environment
+# to run with docker locally
 nextflow run main.nf \
-         -profile test,singularity,cluster \
+         -profile test,docker \
          -params-file test_data/params.test.yaml \
          -with-trace test_data/reports_test/run_report/trace.txt \
          -with-report test_data/reports_test/run_report/report.html \
          -with-timeline test_data/reports_test/run_report/timeline.html \
 
-# alternatively, to use docker locally
+# alternatively, to run with singularity in a cluster environment
 nextflow run main.nf \
-         -profile test,docker \
+         -profile test,singularity,cluster \
          -params-file test_data/params.test.yaml \
          -with-trace test_data/reports_test/run_report/trace.txt \
          -with-report test_data/reports_test/run_report/report.html \
