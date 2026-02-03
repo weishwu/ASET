@@ -140,4 +140,4 @@ nextflow run main.nf \
 ```
 
 ## Citation
-- Manuscript under peer review: https://doi.org/10.21203/rs.3.rs-6844336/v1
+- Wu, W., Shedden, K., Vincenz, C., Gates, C., & Strassmann, B. (2025). ASET: an end‑to‑end pipeline for quantification and visualization of allele specific expression. BMC Bioinformatics, 26, 257. [https://doi.org/10.1186/s12859‑025‑06282‑2](https://doi.org/10.1186/s12859‑025‑06282‑2)
